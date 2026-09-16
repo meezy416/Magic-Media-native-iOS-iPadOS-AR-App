@@ -114,15 +114,19 @@ final class UploadViewController: UIViewController {
             do {
                 let session = try await SupabaseManager.shared.client.auth.session
                 let userId = session.user.id
+                // Storage RLS policies compare this folder segment against auth.uid()::text,
+                // which Postgres renders lowercase — Swift's UUID interpolates uppercase, so
+                // this must be lowercased or every upload fails the policy check.
+                let userIdPath = userId.uuidString.lowercased()
 
-                let targetPath = "\(userId)/\(UUID().uuidString).jpg"
+                let targetPath = "\(userIdPath)/\(UUID().uuidString).jpg"
                 try await SupabaseManager.shared.client.storage
                     .from("trigger-targets")
                     .upload(targetPath, data: jpegData, options: FileOptions(contentType: "image/jpeg"))
 
                 let contentData = try Data(contentsOf: contentURL)
                 let ext = contentURL.pathExtension.isEmpty ? "mp4" : contentURL.pathExtension
-                let contentPath = "\(userId)/\(UUID().uuidString).\(ext)"
+                let contentPath = "\(userIdPath)/\(UUID().uuidString).\(ext)"
                 try await SupabaseManager.shared.client.storage
                     .from("trigger-content")
                     .upload(contentPath, data: contentData)
