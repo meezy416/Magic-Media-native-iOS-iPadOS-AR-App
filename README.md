@@ -22,6 +22,7 @@ This project won the Best Project (Audience Choice) Award under the Augmented Re
 4. SceneKit
 5. RealityKit
 6. Apple Speech Framework
+7. Supabase (Postgres, Storage, Auth) — powers the community-uploaded triggers described below
 
 ## Table of Contents
 
@@ -36,6 +37,7 @@ This project won the Best Project (Audience Choice) Award under the Augmented Re
   - [Accepts voice commands](#accepts-voice-commands)
 - [Integration](#integration)
 - [User Experience](#user-experience)
+- [Community Triggers (Supabase Backend)](#community-triggers-supabase-backend)
 - [Appendix: Lessons Learned (My personal journey throughout this project)](#Appendix-lessons-learned-my-personal-journey-throughout-this-project)
   
 
@@ -49,23 +51,25 @@ This will help you to easily install and enjoy the app on your supported iOS/iPa
 
 **Testing details:**
 
-The app has been tested with iPhone 12 Pro Max and iPad Pro (2020, 4th generation). The recommended iOS version is iOS 14.1 but the app should also support iOS 13.
+The app has been tested with iPhone 12 Pro Max and iPad Pro (2020, 4th generation). The minimum supported iOS version is now **iOS 16.0** (raised from 14.1, since the Supabase Swift SDK requires it). The app does not run in the iOS Simulator — it calls `fatalError()` on launch if `ARWorldTrackingConfiguration.isSupported` is false, which is always the case on Simulator (no camera). A real ARKit-capable device is required.
 
 **Installing the app:**
 
 1. Open Xcode on your app and connect your iPhone or iPad to your Mac using cable.
 2. Open the “Magic Media.xcodeproj” file from the project folder on your Mac using Xcode.
-3. Once the Xcode file is open, select your iPhone/iPad among the available set of devices among target devices menu in the top panel.
+3. Copy `MagicKettle/Secrets.example.plist` to `MagicKettle/Secrets.plist` (git-ignored) and fill in your own Supabase project's URL and anon key — see [Community Triggers](#community-triggers-supabase-backend) below for how to set that project up. The app won't launch without this file.
+4. If Xcode hasn't already resolved the Supabase Swift package, go to File → Add Package Dependencies and add `https://github.com/supabase/supabase-swift` if it isn't listed under the project's Package Dependencies.
+5. Once the Xcode file is open, select your iPhone/iPad among the available set of devices among target devices menu in the top panel.
 
 ![alt text](https://github.com/ivedants/MagicMedia/blob/main/Image%201.png)
 
-4. In the Project Navigator panel, go to “Signing and Capabilities” tab and select “Team”. If you don’t have an existing team, press “Add an account...” and login using your Apple ID and password.
+6. In the Project Navigator panel, go to “Signing and Capabilities” tab and select “Team”. If you don’t have an existing team, press “Add an account...” and login using your Apple ID and password. If you're using your own bundle identifier, make sure "Sign In with Apple" is enabled as a capability here and on the matching App ID in your Apple Developer account (Certificates, IDs & Profiles → Identifiers) — required for the community upload feature's sign-in.
 
 ![alt text](https://github.com/ivedants/MagicMedia/blob/main/Image%202.png)
 
-5. Now, you can press the “Build” button on the top left corner for building the app on your iPhone or iPad. Make sure the device is unlocked while the app is being built.
-6. If the app doesn’t open and give a permissions error on your device, then head over to Settings -> Your name (at the very top of the screen) -> Scroll down to a button that says “Developer” and then give permission for the app to run on your iPhone/iPad.
-7. This should get the app working on your iPhone/iPad and now, you’re all set to enjoy its features.
+7. Now, you can press the “Build” button on the top left corner for building the app on your iPhone or iPad. Make sure the device is unlocked while the app is being built.
+8. If the app doesn’t open and give a permissions error on your device, then head over to Settings -> Your name (at the very top of the screen) -> Scroll down to a button that says “Developer” and then give permission for the app to run on your iPhone/iPad.
+9. This should get the app working on your iPhone/iPad and now, you’re all set to enjoy its features.
 
 ## AR Application Design
 
@@ -133,6 +137,26 @@ First, all the assets were gathered and put in Xcode which included all the soun
 ## User Experience
 
 In order to give users a very user-friendly and immersive experience, the app always **implements a quick AR coaching session** for the users to learn about detecting vertical and horizontal surfaces for the app to track the images in the physical environment. The app **also takes user privacy into account** by asking the users for permission to access their camera to detect the images and microphone for the voice commands. **Since the current version of the app works with a limited set of physical media, it also supports any one, ten, and twenty US dollar bill. This helps in adding more creativity and complexity.** The front side of the bill renders a 3D model with a famous quote of the person featured on that dollar bill whereas the back side of the bill plays a video on top of it, informing more about the making of that dollar bill. The virtual objects and digital content help enhance the whole reading and interacting experience for the users. On top of this, the users can make use of voice commands to get the most out of the app by saying specific phrases to activate those commands, which also help them navigate throughout their experience.
+
+## Community Triggers (Supabase Backend)
+
+The app's original AR triggers (the dollar bills, instruction manuals, etc. described above) are bundled with the app itself — adding a new one means shipping a new binary. On top of that, the app also supports **community-uploaded triggers**: a signed-in user can upload their own target photo plus a video or audio clip, and once approved it becomes trackable by anyone using the app, without an app update.
+
+**How it works:**
+
+- **Auth**: Sign in with Apple, via Supabase Auth's Apple provider (`ViewController.swift`'s `signInTapped()`).
+- **Upload**: `UploadViewController.swift` lets a signed-in user pick a target image and a video/audio file, and uploads both to private Supabase Storage buckets (`trigger-targets`, `trigger-content`), then inserts a row into the `triggers` table with `status = 'pending'`.
+- **Moderation**: pending triggers are invisible to everyone except their uploader until manually flipped to `status = 'approved'` in Supabase Studio's table editor. This keeps the app compliant with App Store Guideline 1.2 (user-generated content needs a moderation path) without a dedicated admin app.
+- **Fetching**: on launch, `TriggerService.swift` fetches all `approved` triggers, downloads their target image and content via short-lived signed URLs, and builds `ARReferenceImage`s from them at runtime (`ARReferenceImage(cgImage:orientation:physicalWidth:)`) — these are merged into the same `ARImageTrackingConfiguration` as the bundled images in `ViewController.swift`'s `loadCommunityTriggers()`.
+- **Reporting**: `ReportContentHelper.swift` lets any signed-in user flag an actively-tracked community trigger, which inserts a row into the `reports` table for review.
+
+**Setting up your own backend:**
+
+1. Create a Supabase project (or reuse an existing one — the schema lives entirely in its own tables/buckets and won't collide with anything else in the same project).
+2. Apply the migration at `supabase/migrations/0001_magic_media_triggers.sql` — it creates the `triggers` and `reports` tables with Row Level Security policies, and the two private Storage buckets.
+3. In Supabase Studio → Authentication → Providers → Apple, enable the provider using a Sign In with Apple key from your Apple Developer account (Team ID, Key ID, and the key's `.p8` contents), and set the Client ID to your app's bundle identifier.
+4. Copy `MagicKettle/Secrets.example.plist` to `MagicKettle/Secrets.plist` and fill in your project's URL and anon key (Project Settings → API in Supabase Studio).
+5. To approve an upload, find its row in the `triggers` table in Supabase Studio and change `status` from `pending` to `approved`.
 
 ## Appendix: Lessons Learned (My personal journey throughout this project)
 
