@@ -74,10 +74,34 @@ final class UploadViewController: UIViewController {
     }
 
     @objc private func chooseImageTapped() {
+        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            sheet.addAction(UIAlertAction(title: "Take Photo", style: .default) { [weak self] _ in
+                self?.presentCamera()
+            })
+        }
+
+        sheet.addAction(UIAlertAction(title: "Choose from Library", style: .default) { [weak self] _ in
+            self?.presentPhotoLibraryPicker()
+        })
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        present(sheet, animated: true)
+    }
+
+    private func presentPhotoLibraryPicker() {
         var config = PHPickerConfiguration()
         config.filter = .images
         config.selectionLimit = 1
         let picker = PHPickerViewController(configuration: config)
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+
+    private func presentCamera() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
         picker.delegate = self
         present(picker, animated: true)
     }
@@ -178,6 +202,20 @@ extension UploadViewController: PHPickerViewControllerDelegate {
                 }
             }
         }
+    }
+}
+
+extension UploadViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        dismiss(animated: true)
+        pickedImage = info[.originalImage] as? UIImage
+        if pickedImage != nil {
+            chooseImageButton.setTitle("Target Image Selected ✓", for: .normal)
+        }
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
     }
 }
 
