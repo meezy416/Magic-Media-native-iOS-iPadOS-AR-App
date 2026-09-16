@@ -56,6 +56,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
     private let signInButton = ASAuthorizationAppleIDButton(type: .signIn, style: .black)
     private let uploadButton = UIButton(type: .system)
     private let reportButton = UIButton(type: .system)
+    private var communityUIStack: UIStackView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -906,6 +907,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             coachingOverlayTemp.activatesAutomatically = true
         }
+
+        // The coaching overlay is full-screen and re-added on every call, so it
+        // would otherwise sit on top of and swallow taps meant for the Sign In /
+        // Upload / Report buttons.
+        if let communityUIStack = communityUIStack {
+            view.bringSubviewToFront(communityUIStack)
+        }
     }
     
     func coachingOverlayViewDidRequestSessionReset(_ coachingOverlayView: ARCoachingOverlayView) {
@@ -1089,6 +1097,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
         stack.spacing = 8
         stack.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stack)
+        communityUIStack = stack
 
         NSLayoutConstraint.activate([
             stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 12),
