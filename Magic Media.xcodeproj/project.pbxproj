@@ -7,9 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0687FFC92E04196500B6482F /* washington-quote 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0687FFC82E04196500B6482F /* washington-quote 2.mp3 */; };
+		0687FFCA2E04196500B6482F /* washington-quote 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0687FFC82E04196500B6482F /* washington-quote 2.mp3 */; };
+		0687FFCB2E04196500B6482F /* washington-quote 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0687FFC82E04196500B6482F /* washington-quote 2.mp3 */; };
+		0687FFCD2E041C3300B6482F /* hamilton-quote 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0687FFCC2E041C3300B6482F /* hamilton-quote 2.mp3 */; };
+		0687FFCE2E041C3300B6482F /* hamilton-quote 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0687FFCC2E041C3300B6482F /* hamilton-quote 2.mp3 */; };
+		0687FFCF2E041C3300B6482F /* hamilton-quote 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0687FFCC2E041C3300B6482F /* hamilton-quote 2.mp3 */; };
+		0687FFD12E041C3D00B6482F /* jackson-quote 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0687FFD02E041C3D00B6482F /* jackson-quote 2.mp3 */; };
+		0687FFD22E041C3D00B6482F /* jackson-quote 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0687FFD02E041C3D00B6482F /* jackson-quote 2.mp3 */; };
+		0687FFD32E041C3D00B6482F /* jackson-quote 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0687FFD02E041C3D00B6482F /* jackson-quote 2.mp3 */; };
+		06A738EE2D83B4A2003C91CB /* mandarin2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 06A738ED2D83B4A2003C91CB /* mandarin2.mp4 */; };
+		06A738F02D83B4E4003C91CB /* mandarin3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 06A738EF2D83B4E4003C91CB /* mandarin3.mp4 */; };
+		06A738F22D83B70D003C91CB /* videoplayback.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 06A738F12D83B70D003C91CB /* videoplayback.mp4 */; };
+		06B01F082E02C3690064E0F5 /* hamilton-quote.aif in Resources */ = {isa = PBXBuildFile; fileRef = 06B01F072E02C3690064E0F5 /* hamilton-quote.aif */; };
+		06B01F092E02C3690064E0F5 /* hamilton-quote.aif in Resources */ = {isa = PBXBuildFile; fileRef = 06B01F072E02C3690064E0F5 /* hamilton-quote.aif */; };
+		06B01F0A2E02C3690064E0F5 /* hamilton-quote.aif in Resources */ = {isa = PBXBuildFile; fileRef = 06B01F072E02C3690064E0F5 /* hamilton-quote.aif */; };
+		06FF37112C612D8900523770 /* twister.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 06FF37102C612D8900523770 /* twister.mp4 */; };
+		06FF37132C612F6300523770 /* timmes.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 06FF37122C612F6300523770 /* timmes.mp4 */; };
+		06FF37152C62301B00523770 /* Timmes20.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 06FF37142C62301B00523770 /* Timmes20.mp4 */; };
 		38C92E59255BC64600819B12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C92E58255BC64600819B12 /* AppDelegate.swift */; };
 		38C92E5B255BC64600819B12 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 38C92E5A255BC64600819B12 /* art.scnassets */; };
 		38C92E5D255BC64600819B12 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C92E5C255BC64600819B12 /* ViewController.swift */; };
+		8BC428A57FFCB94F497C92BA /* SupabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAD8764966BD7CF6EFD5635 /* SupabaseManager.swift */; };
+		8443B574E0B146540A15DADD /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44207CC3B85F12779BCB8BB /* Trigger.swift */; };
+		EBD88F5F4C48D0D640D59B50 /* TriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A429CA49E8C77DB9EB6DDD08 /* TriggerService.swift */; };
+		5749556192DF07C2171DB48E /* ReportContentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23BBB59F0F6C26AD4C8EA4 /* ReportContentHelper.swift */; };
+		2642794383988266A77066E4 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CE156CC128F5B8E1462726 /* UploadViewController.swift */; };
 		38C92E60255BC64600819B12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C92E5E255BC64600819B12 /* Main.storyboard */; };
 		38C92E62255BC64800819B12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38C92E61255BC64800819B12 /* Assets.xcassets */; };
 		38C92E65255BC64800819B12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C92E63255BC64800819B12 /* LaunchScreen.storyboard */; };
@@ -33,31 +56,18 @@
 		38CAB1182581FBE00018A18F /* waterKettle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 38CAB1172581FBE00018A18F /* waterKettle.mp3 */; };
 		38CAB1192581FBE00018A18F /* waterKettle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 38CAB1172581FBE00018A18F /* waterKettle.mp3 */; };
 		38CAB11A2581FBE00018A18F /* waterKettle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 38CAB1172581FBE00018A18F /* waterKettle.mp3 */; };
-		38CD14722575CA6B00AA0B95 /* washington-quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14712575CA6B00AA0B95 /* washington-quote.mp3 */; };
-		38CD14732575CA6B00AA0B95 /* washington-quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14712575CA6B00AA0B95 /* washington-quote.mp3 */; };
-		38CD14742575CA6B00AA0B95 /* washington-quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14712575CA6B00AA0B95 /* washington-quote.mp3 */; };
 		38CD147F2575CF4400AA0B95 /* one-dollar.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD147E2575CF4400AA0B95 /* one-dollar.mp4 */; };
 		38CD14802575CF4400AA0B95 /* one-dollar.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD147E2575CF4400AA0B95 /* one-dollar.mp4 */; };
 		38CD14812575CF4400AA0B95 /* one-dollar.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD147E2575CF4400AA0B95 /* one-dollar.mp4 */; };
-		38CD14862575D13F00AA0B95 /* hamilton-quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14852575D13F00AA0B95 /* hamilton-quote.mp3 */; };
-		38CD14872575D13F00AA0B95 /* hamilton-quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14852575D13F00AA0B95 /* hamilton-quote.mp3 */; };
-		38CD14882575D13F00AA0B95 /* hamilton-quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14852575D13F00AA0B95 /* hamilton-quote.mp3 */; };
-		38CD14902575D27500AA0B95 /* jackson-quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD148F2575D27500AA0B95 /* jackson-quote.mp3 */; };
-		38CD14912575D27500AA0B95 /* jackson-quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD148F2575D27500AA0B95 /* jackson-quote.mp3 */; };
-		38CD14922575D27500AA0B95 /* jackson-quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD148F2575D27500AA0B95 /* jackson-quote.mp3 */; };
 		38CD149D25760C4C00AA0B95 /* ten-dollar.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD149C25760C4C00AA0B95 /* ten-dollar.mp4 */; };
 		38CD149E25760C4C00AA0B95 /* ten-dollar.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD149C25760C4C00AA0B95 /* ten-dollar.mp4 */; };
 		38CD149F25760C4C00AA0B95 /* ten-dollar.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD149C25760C4C00AA0B95 /* ten-dollar.mp4 */; };
-		38CD14A425761BCE00AA0B95 /* twenty-dollar.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14A325761BCE00AA0B95 /* twenty-dollar.mp4 */; };
-		38CD14A525761BCE00AA0B95 /* twenty-dollar.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14A325761BCE00AA0B95 /* twenty-dollar.mp4 */; };
-		38CD14A625761BCE00AA0B95 /* twenty-dollar.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14A325761BCE00AA0B95 /* twenty-dollar.mp4 */; };
 		38CD14AE2576339000AA0B95 /* costco-auto-program.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14AD2576339000AA0B95 /* costco-auto-program.mp4 */; };
 		38CD14AF2576339000AA0B95 /* costco-auto-program.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14AD2576339000AA0B95 /* costco-auto-program.mp4 */; };
 		38CD14B02576339000AA0B95 /* costco-auto-program.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14AD2576339000AA0B95 /* costco-auto-program.mp4 */; };
-		38CD14BB2576368500AA0B95 /* mexico.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14BA2576368500AA0B95 /* mexico.mp4 */; };
-		38CD14BC2576368500AA0B95 /* mexico.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14BA2576368500AA0B95 /* mexico.mp4 */; };
-		38CD14BD2576368500AA0B95 /* mexico.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14BA2576368500AA0B95 /* mexico.mp4 */; };
 		38CD14C825763B0000AA0B95 /* sensodyne.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14C725763B0000AA0B95 /* sensodyne.mp4 */; };
+		435B9598109A6C9DA4E50DCE /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D178AEC7759AA23A8C8B31D3 /* PrivacyInfo.xcprivacy */; };
+		2A973038C2B9767D18353AEC /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7C12CB55DE66956BB64ED7C /* Secrets.plist */; };
 		38CD14C925763B0000AA0B95 /* sensodyne.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14C725763B0000AA0B95 /* sensodyne.mp4 */; };
 		38CD14CA25763B0000AA0B95 /* sensodyne.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14C725763B0000AA0B95 /* sensodyne.mp4 */; };
 		38CD14D525764B6700AA0B95 /* promised-land.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38CD14D425764B6600AA0B95 /* promised-land.mp4 */; };
@@ -83,14 +93,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0687FFC82E04196500B6482F /* washington-quote 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "washington-quote 2.mp3"; sourceTree = "<group>"; };
+		0687FFCC2E041C3300B6482F /* hamilton-quote 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "hamilton-quote 2.mp3"; sourceTree = "<group>"; };
+		0687FFD02E041C3D00B6482F /* jackson-quote 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "jackson-quote 2.mp3"; sourceTree = "<group>"; };
+		06A738ED2D83B4A2003C91CB /* mandarin2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mandarin2.mp4; sourceTree = "<group>"; };
+		06A738EF2D83B4E4003C91CB /* mandarin3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mandarin3.mp4; sourceTree = "<group>"; };
+		06A738F12D83B70D003C91CB /* videoplayback.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = videoplayback.mp4; sourceTree = "<group>"; };
+		06B01F072E02C3690064E0F5 /* hamilton-quote.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hamilton-quote.aif"; sourceTree = "<group>"; };
+		06FF37102C612D8900523770 /* twister.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = twister.mp4; sourceTree = "<group>"; };
+		06FF37122C612F6300523770 /* timmes.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = timmes.mp4; sourceTree = "<group>"; };
+		06FF37142C62301B00523770 /* Timmes20.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Timmes20.mp4; sourceTree = "<group>"; };
 		38C92E55255BC64600819B12 /* Magic Media.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Magic Media.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C92E58255BC64600819B12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38C92E5A255BC64600819B12 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		38C92E5C255BC64600819B12 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8FAD8764966BD7CF6EFD5635 /* SupabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseManager.swift; sourceTree = "<group>"; };
+		E44207CC3B85F12779BCB8BB /* Trigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trigger.swift; sourceTree = "<group>"; };
+		A429CA49E8C77DB9EB6DDD08 /* TriggerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerService.swift; sourceTree = "<group>"; };
+		AD23BBB59F0F6C26AD4C8EA4 /* ReportContentHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportContentHelper.swift; sourceTree = "<group>"; };
+		E9CE156CC128F5B8E1462726 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		38C92E5F255BC64600819B12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38C92E61255BC64800819B12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38C92E64255BC64800819B12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38C92E66255BC64800819B12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D178AEC7759AA23A8C8B31D3 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		B7C12CB55DE66956BB64ED7C /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
+		4BB27E1406BE34652F389BBD /* MagicKettle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MagicKettle.entitlements; sourceTree = "<group>"; };
 		38C92E6B255BC64800819B12 /* Magic MediaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Magic MediaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C92E6F255BC64800819B12 /* MagicKettleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicKettleTests.swift; sourceTree = "<group>"; };
 		38C92E71255BC64800819B12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,14 +131,9 @@
 		38CAB1032581F1960018A18F /* salmonrecipe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = salmonrecipe.mp3; sourceTree = "<group>"; };
 		38CAB10D2581FBD80018A18F /* oprah.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = oprah.mp3; sourceTree = "<group>"; };
 		38CAB1172581FBE00018A18F /* waterKettle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = waterKettle.mp3; sourceTree = "<group>"; };
-		38CD14712575CA6B00AA0B95 /* washington-quote.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "washington-quote.mp3"; sourceTree = "<group>"; };
 		38CD147E2575CF4400AA0B95 /* one-dollar.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "one-dollar.mp4"; sourceTree = "<group>"; };
-		38CD14852575D13F00AA0B95 /* hamilton-quote.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "hamilton-quote.mp3"; sourceTree = "<group>"; };
-		38CD148F2575D27500AA0B95 /* jackson-quote.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "jackson-quote.mp3"; sourceTree = "<group>"; };
 		38CD149C25760C4C00AA0B95 /* ten-dollar.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ten-dollar.mp4"; sourceTree = "<group>"; };
-		38CD14A325761BCE00AA0B95 /* twenty-dollar.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "twenty-dollar.mp4"; sourceTree = "<group>"; };
 		38CD14AD2576339000AA0B95 /* costco-auto-program.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "costco-auto-program.mp4"; sourceTree = "<group>"; };
-		38CD14BA2576368500AA0B95 /* mexico.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mexico.mp4; sourceTree = "<group>"; };
 		38CD14C725763B0000AA0B95 /* sensodyne.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sensodyne.mp4; sourceTree = "<group>"; };
 		38CD14D425764B6600AA0B95 /* promised-land.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "promised-land.mp4"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,11 +190,15 @@
 				38CD147E2575CF4400AA0B95 /* one-dollar.mp4 */,
 				38CD149C25760C4C00AA0B95 /* ten-dollar.mp4 */,
 				38C92E8B255BC67900819B12 /* kettle.mp4 */,
-				38CD14A325761BCE00AA0B95 /* twenty-dollar.mp4 */,
 				38CD14AD2576339000AA0B95 /* costco-auto-program.mp4 */,
-				38CD14BA2576368500AA0B95 /* mexico.mp4 */,
 				38CD14C725763B0000AA0B95 /* sensodyne.mp4 */,
+				06A738ED2D83B4A2003C91CB /* mandarin2.mp4 */,
+				06A738EF2D83B4E4003C91CB /* mandarin3.mp4 */,
+				06A738F12D83B70D003C91CB /* videoplayback.mp4 */,
 				38CD14D425764B6600AA0B95 /* promised-land.mp4 */,
+				06FF37102C612D8900523770 /* twister.mp4 */,
+				06FF37122C612F6300523770 /* timmes.mp4 */,
+				06FF37142C62301B00523770 /* Timmes20.mp4 */,
 				38C92E58255BC64600819B12 /* AppDelegate.swift */,
 				38C92E5A255BC64600819B12 /* art.scnassets */,
 				38C92E5C255BC64600819B12 /* ViewController.swift */,
@@ -180,6 +207,12 @@
 				38C92E61255BC64800819B12 /* Assets.xcassets */,
 				38C92E63255BC64800819B12 /* LaunchScreen.storyboard */,
 				38C92E66255BC64800819B12 /* Info.plist */,
+				D178AEC7759AA23A8C8B31D3 /* PrivacyInfo.xcprivacy */,
+				B7C12CB55DE66956BB64ED7C /* Secrets.plist */,
+				4BB27E1406BE34652F389BBD /* MagicKettle.entitlements */,
+				AD23BBB59F0F6C26AD4C8EA4 /* ReportContentHelper.swift */,
+				E9CE156CC128F5B8E1462726 /* UploadViewController.swift */,
+				D9EFBD25104782524E568D13 /* Supabase */,
 			);
 			path = MagicKettle;
 			sourceTree = "<group>";
@@ -202,14 +235,25 @@
 			path = MagicKettleUITests;
 			sourceTree = "<group>";
 		};
+		D9EFBD25104782524E568D13 /* Supabase */ = {
+			isa = PBXGroup;
+			children = (
+				8FAD8764966BD7CF6EFD5635 /* SupabaseManager.swift */,
+				E44207CC3B85F12779BCB8BB /* Trigger.swift */,
+				A429CA49E8C77DB9EB6DDD08 /* TriggerService.swift */,
+			);
+			path = Supabase;
+			sourceTree = "<group>";
+		};
 		38CD14562575B6A800AA0B95 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				38CD14712575CA6B00AA0B95 /* washington-quote.mp3 */,
-				38CD14852575D13F00AA0B95 /* hamilton-quote.mp3 */,
-				38CD148F2575D27500AA0B95 /* jackson-quote.mp3 */,
+				0687FFC82E04196500B6482F /* washington-quote 2.mp3 */,
+				0687FFCC2E041C3300B6482F /* hamilton-quote 2.mp3 */,
+				0687FFD02E041C3D00B6482F /* jackson-quote 2.mp3 */,
 				38CAB0FA2581C9600018A18F /* whatcanido.mp3 */,
 				38CAB1032581F1960018A18F /* salmonrecipe.mp3 */,
+				06B01F072E02C3690064E0F5 /* hamilton-quote.aif */,
 				38CAB10D2581FBD80018A18F /* oprah.mp3 */,
 				38CAB1172581FBE00018A18F /* waterKettle.mp3 */,
 			);
@@ -319,24 +363,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38CD14722575CA6B00AA0B95 /* washington-quote.mp3 in Resources */,
+				2A973038C2B9767D18353AEC /* Secrets.plist in Resources */,
+				435B9598109A6C9DA4E50DCE /* PrivacyInfo.xcprivacy in Resources */,
+				06FF37152C62301B00523770 /* Timmes20.mp4 in Resources */,
 				38CD14C825763B0000AA0B95 /* sensodyne.mp4 in Resources */,
+				06A738F02D83B4E4003C91CB /* mandarin3.mp4 in Resources */,
 				38CD14D525764B6700AA0B95 /* promised-land.mp4 in Resources */,
-				38CD14A425761BCE00AA0B95 /* twenty-dollar.mp4 in Resources */,
 				38CD147F2575CF4400AA0B95 /* one-dollar.mp4 in Resources */,
-				38CD14862575D13F00AA0B95 /* hamilton-quote.mp3 in Resources */,
+				06A738F22D83B70D003C91CB /* videoplayback.mp4 in Resources */,
+				06B01F082E02C3690064E0F5 /* hamilton-quote.aif in Resources */,
+				0687FFD12E041C3D00B6482F /* jackson-quote 2.mp3 in Resources */,
+				0687FFC92E04196500B6482F /* washington-quote 2.mp3 in Resources */,
 				38CD149D25760C4C00AA0B95 /* ten-dollar.mp4 in Resources */,
 				38CAB10E2581FBD80018A18F /* oprah.mp3 in Resources */,
-				38CD14BB2576368500AA0B95 /* mexico.mp4 in Resources */,
 				38CAB1182581FBE00018A18F /* waterKettle.mp3 in Resources */,
-				38CD14902575D27500AA0B95 /* jackson-quote.mp3 in Resources */,
 				38CD14AE2576339000AA0B95 /* costco-auto-program.mp4 in Resources */,
 				38C92E5B255BC64600819B12 /* art.scnassets in Resources */,
 				38C92E8C255BC67900819B12 /* kettle.mp4 in Resources */,
+				06FF37112C612D8900523770 /* twister.mp4 in Resources */,
+				06FF37132C612F6300523770 /* timmes.mp4 in Resources */,
+				06A738EE2D83B4A2003C91CB /* mandarin2.mp4 in Resources */,
 				38C92E65255BC64800819B12 /* LaunchScreen.storyboard in Resources */,
 				38C92E62255BC64800819B12 /* Assets.xcassets in Resources */,
 				38CAB0FB2581C9600018A18F /* whatcanido.mp3 in Resources */,
 				38CAB1042581F1960018A18F /* salmonrecipe.mp3 in Resources */,
+				0687FFCD2E041C3300B6482F /* hamilton-quote 2.mp3 in Resources */,
 				38C92E60255BC64600819B12 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,21 +396,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38CD14912575D27500AA0B95 /* jackson-quote.mp3 in Resources */,
 				38CD149E25760C4C00AA0B95 /* ten-dollar.mp4 in Resources */,
-				38CD14A525761BCE00AA0B95 /* twenty-dollar.mp4 in Resources */,
-				38CD14BC2576368500AA0B95 /* mexico.mp4 in Resources */,
 				38CD14D625764B6700AA0B95 /* promised-land.mp4 in Resources */,
 				38CAB1192581FBE00018A18F /* waterKettle.mp3 in Resources */,
+				0687FFCB2E04196500B6482F /* washington-quote 2.mp3 in Resources */,
 				38CD14802575CF4400AA0B95 /* one-dollar.mp4 in Resources */,
 				38C92E8D255BC67900819B12 /* kettle.mp4 in Resources */,
 				38CAB10F2581FBD80018A18F /* oprah.mp3 in Resources */,
-				38CD14872575D13F00AA0B95 /* hamilton-quote.mp3 in Resources */,
 				38CD14C925763B0000AA0B95 /* sensodyne.mp4 in Resources */,
 				38CAB1052581F1960018A18F /* salmonrecipe.mp3 in Resources */,
+				0687FFCE2E041C3300B6482F /* hamilton-quote 2.mp3 in Resources */,
 				38CD14AF2576339000AA0B95 /* costco-auto-program.mp4 in Resources */,
+				06B01F0A2E02C3690064E0F5 /* hamilton-quote.aif in Resources */,
 				38CAB0FC2581C9600018A18F /* whatcanido.mp3 in Resources */,
-				38CD14732575CA6B00AA0B95 /* washington-quote.mp3 in Resources */,
+				0687FFD32E041C3D00B6482F /* jackson-quote 2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,21 +417,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38CD14922575D27500AA0B95 /* jackson-quote.mp3 in Resources */,
 				38CD149F25760C4C00AA0B95 /* ten-dollar.mp4 in Resources */,
-				38CD14A625761BCE00AA0B95 /* twenty-dollar.mp4 in Resources */,
-				38CD14BD2576368500AA0B95 /* mexico.mp4 in Resources */,
 				38CD14D725764B6700AA0B95 /* promised-land.mp4 in Resources */,
 				38CAB11A2581FBE00018A18F /* waterKettle.mp3 in Resources */,
+				0687FFCA2E04196500B6482F /* washington-quote 2.mp3 in Resources */,
 				38CD14812575CF4400AA0B95 /* one-dollar.mp4 in Resources */,
 				38C92E8E255BC67900819B12 /* kettle.mp4 in Resources */,
 				38CAB1102581FBD80018A18F /* oprah.mp3 in Resources */,
-				38CD14882575D13F00AA0B95 /* hamilton-quote.mp3 in Resources */,
 				38CD14CA25763B0000AA0B95 /* sensodyne.mp4 in Resources */,
 				38CAB1062581F1960018A18F /* salmonrecipe.mp3 in Resources */,
+				0687FFCF2E041C3300B6482F /* hamilton-quote 2.mp3 in Resources */,
 				38CD14B02576339000AA0B95 /* costco-auto-program.mp4 in Resources */,
+				06B01F092E02C3690064E0F5 /* hamilton-quote.aif in Resources */,
 				38CAB0FD2581C9600018A18F /* whatcanido.mp3 in Resources */,
-				38CD14742575CA6B00AA0B95 /* washington-quote.mp3 in Resources */,
+				0687FFD22E041C3D00B6482F /* jackson-quote 2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +444,11 @@
 				38C92E5D255BC64600819B12 /* ViewController.swift in Sources */,
 				38CAB0F42580F1B20018A18F /* Speech ViewController.swift in Sources */,
 				38C92E59255BC64600819B12 /* AppDelegate.swift in Sources */,
+				8BC428A57FFCB94F497C92BA /* SupabaseManager.swift in Sources */,
+				8443B574E0B146540A15DADD /* Trigger.swift in Sources */,
+				EBD88F5F4C48D0D640D59B50 /* TriggerService.swift in Sources */,
+				5749556192DF07C2171DB48E /* ReportContentHelper.swift in Sources */,
+				2642794383988266A77066E4 /* UploadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,8 +626,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MagicKettle/MagicKettle.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3CPTU86WRG;
+				DEVELOPMENT_TEAM = 6PDFYXL936;
 				INFOPLIST_FILE = MagicKettle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -591,8 +646,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MagicKettle/MagicKettle.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3CPTU86WRG;
+				DEVELOPMENT_TEAM = 6PDFYXL936;
 				INFOPLIST_FILE = MagicKettle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -611,7 +667,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3CPTU86WRG;
+				DEVELOPMENT_TEAM = 6PDFYXL936;
 				INFOPLIST_FILE = MagicKettleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -633,7 +689,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3CPTU86WRG;
+				DEVELOPMENT_TEAM = 6PDFYXL936;
 				INFOPLIST_FILE = MagicKettleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -654,7 +710,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3CPTU86WRG;
+				DEVELOPMENT_TEAM = 6PDFYXL936;
 				INFOPLIST_FILE = MagicKettleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -674,7 +730,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3CPTU86WRG;
+				DEVELOPMENT_TEAM = 6PDFYXL936;
 				INFOPLIST_FILE = MagicKettleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

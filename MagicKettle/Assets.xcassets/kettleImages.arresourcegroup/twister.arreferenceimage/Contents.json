@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "ten-dollar-back.png",
+      "filename" : "twister.jpeg",
       "idiom" : "universal"
     }
   ],
@@ -10,6 +10,6 @@
     "version" : 1
   },
   "properties" : {
-    "width" : 0.17972972972972973
+    "width" : 0.076559999999999989
   }
 }

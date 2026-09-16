@@ -11,6 +11,8 @@ import ARKit
 import RealityKit
 import Speech
 import AVFoundation
+import AuthenticationServices
+import Supabase
 class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayViewDelegate, SFSpeechRecognizerDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
@@ -43,23 +45,33 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
   // let speechService: SpeechService = KeywordsSpeechService()
     
     var audioPlayer : AVPlayer!
-    
+
     var newAudioPlayer: AVAudioPlayer!
-    
+
+    // MARK: Community Triggers (Supabase-backed)
+
+    /// The community trigger currently being displayed, so Report can act on it.
+    var activeDynamicTrigger: Trigger?
+
+    private let signInButton = ASAuthorizationAppleIDButton(type: .signIn, style: .black)
+    private let uploadButton = UIButton(type: .system)
+    private let reportButton = UIButton(type: .system)
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         sceneView.autoenablesDefaultLighting = true
         recordingButton.isEnabled = false
 //        presentCoachingOverlay()
-        
+
         // Set the view's delegate
         sceneView.delegate = self
-        
+
         // Show statistics such as fps and timing information
      //   sceneView.showsStatistics = true
-        
-                        
+
+        setUpCommunityUI()
+
             }
     
     override public func viewDidAppear(_ animated: Bool) {
@@ -127,8 +139,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
         
         // Run the view's session
         sceneView.session.run(configuration)
-        
+
        implementCoaching()
+
+        loadCommunityTriggers()
+        refreshAuthUI()
 
     }
     
@@ -210,6 +225,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
                 
                 playHamiltonAudio()
             }
+            
             
             
             if imageAnchor.referenceImage.name == "twenty-front" {
@@ -382,6 +398,58 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
             
             }
             
+            if imageAnchor.referenceImage.name == "mandarinrest" {
+                            
+            let videoNode = SKVideoNode(fileNamed: "mandarin2.mp4")
+            
+            videoNode.play()
+            
+            let videoScene = SKScene(size: CGSize(width: 1280, height: 720))
+            
+            videoNode.position = CGPoint(x: videoScene.size.width/2, y: videoScene.size.height/2)
+            
+            videoNode.yScale = 1.0
+            
+            videoScene.addChild(videoNode)
+            
+            let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+            
+            plane.firstMaterial?.diffuse.contents = videoScene
+            
+            let planeNode = SCNNode(geometry: plane)
+            
+            planeNode.eulerAngles.x = -.pi/2
+            
+            node.addChildNode(planeNode)
+            
+            }
+            
+            if imageAnchor.referenceImage.name == "mandarinrest2" {
+                            
+            let videoNode = SKVideoNode(fileNamed: "mandarin3.mp4")
+            
+            videoNode.play()
+            
+            let videoScene = SKScene(size: CGSize(width: 1280, height: 720))
+            
+            videoNode.position = CGPoint(x: videoScene.size.width/2, y: videoScene.size.height/2)
+            
+            videoNode.yScale = 1.0
+            
+            videoScene.addChild(videoNode)
+            
+            let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+            
+            plane.firstMaterial?.diffuse.contents = videoScene
+            
+            let planeNode = SCNNode(geometry: plane)
+            
+            planeNode.eulerAngles.x = -.pi/2
+            
+            node.addChildNode(planeNode)
+            
+            }
+            
             if imageAnchor.referenceImage.name == "one-dollar-back" {
                             
             let videoNode = SKVideoNode(fileNamed: "one-dollar.mp4")
@@ -437,6 +505,84 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
             if imageAnchor.referenceImage.name == "twenty-dollar-back" {
                             
             let videoNode = SKVideoNode(fileNamed: "twenty-dollar.mp4")
+            
+            videoNode.play()
+            
+            let videoScene = SKScene(size: CGSize(width: 1280, height: 720))
+            
+            videoNode.position = CGPoint(x: videoScene.size.width/2, y: videoScene.size.height/2)
+            
+            videoNode.yScale = -1.0
+            
+            videoScene.addChild(videoNode)
+            
+            let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+            
+            plane.firstMaterial?.diffuse.contents = videoScene
+            
+            let planeNode = SCNNode(geometry: plane)
+            
+            planeNode.eulerAngles.x = -.pi/2
+            
+            node.addChildNode(planeNode)
+            
+            }
+            
+            if imageAnchor.referenceImage.name == "twister" {
+                            
+            let videoNode = SKVideoNode(fileNamed: "twister.mp4")
+            
+            videoNode.play()
+            
+            let videoScene = SKScene(size: CGSize(width: 1280, height: 720))
+            
+            videoNode.position = CGPoint(x: videoScene.size.width/2, y: videoScene.size.height/2)
+            
+            videoNode.yScale = -1.0
+            
+            videoScene.addChild(videoNode)
+            
+            let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+            
+            plane.firstMaterial?.diffuse.contents = videoScene
+            
+            let planeNode = SCNNode(geometry: plane)
+            
+            planeNode.eulerAngles.x = -.pi/2
+            
+            node.addChildNode(planeNode)
+            
+            }
+            
+            if imageAnchor.referenceImage.name == "TimH" {
+                            
+            let videoNode = SKVideoNode(fileNamed: "timmes.mp4")
+            
+            videoNode.play()
+            
+            let videoScene = SKScene(size: CGSize(width: 1280, height: 720))
+            
+            videoNode.position = CGPoint(x: videoScene.size.width/2, y: videoScene.size.height/2)
+            
+            videoNode.yScale = -1.0
+            
+            videoScene.addChild(videoNode)
+            
+            let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+            
+            plane.firstMaterial?.diffuse.contents = videoScene
+            
+            let planeNode = SCNNode(geometry: plane)
+            
+            planeNode.eulerAngles.x = -.pi/2
+            
+            node.addChildNode(planeNode)
+            
+            }
+            
+            if imageAnchor.referenceImage.name == "Timmes20" {
+                            
+            let videoNode = SKVideoNode(fileNamed: "Timmes20.mp4")
             
             videoNode.play()
             
@@ -561,19 +707,68 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
             planeNode.eulerAngles.x = -.pi/2
             
             node.addChildNode(planeNode)
-            
+
             }
-            
+
+            if let trigger = TriggerService.shared.triggersByReferenceName[imageAnchor.referenceImage.name ?? ""] {
+
+                activeDynamicTrigger = trigger
+
+                let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+
+                plane.firstMaterial?.diffuse.contents = UIColor(white: 1.0, alpha: 0.5)
+
+                let planeNode = SCNNode(geometry: plane)
+
+                planeNode.eulerAngles.x = -.pi/2
+
+                node.addChildNode(planeNode)
+
+                let contentURL = TriggerService.shared.cachedContentURL(for: trigger)
+
+                switch trigger.contentType {
+                case .video:
+                    let videoNode = SKVideoNode(url: contentURL)
+
+                    videoNode.play()
+
+                    let videoScene = SKScene(size: CGSize(width: 1280, height: 720))
+
+                    videoNode.position = CGPoint(x: videoScene.size.width / 2, y: videoScene.size.height / 2)
+
+                    videoNode.yScale = -1.0
+
+                    videoScene.addChild(videoNode)
+
+                    plane.firstMaterial?.diffuse.contents = videoScene
+
+                case .audio:
+                    do {
+                        newAudioPlayer = try AVAudioPlayer(contentsOf: contentURL)
+                        newAudioPlayer.play()
+                    } catch {
+                        print("Failed to play community audio: \(error)")
+                    }
+
+                case .model:
+                    if let modelScene = try? SCNScene(url: contentURL, options: nil),
+                       let modelNode = modelScene.rootNode.childNodes.first {
+                        modelNode.eulerAngles.x = .pi / 2
+                        planeNode.addChildNode(modelNode)
+                    }
+                }
+            }
+
     }
-        
+
         return node
-        
+
     }
     
 
     
     private func playWashingtonAudio() {
-        guard let url = Bundle.main.url(forResource: "washington-quote", withExtension: "mp3") else {
+        guard let url = Bundle.main.url(forResource: "washington-quote 2", withExtension: "mp3") else {
                 print("error to get the mp3 file")
                 return
             }
@@ -588,7 +783,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
         }
     
     private func playHamiltonAudio() {
-        guard let url = Bundle.main.url(forResource: "hamilton-quote", withExtension: "mp3") else {
+        guard let url = Bundle.main.url(forResource: "hamilton-quote 2", withExtension: "mp3") else {
                 print("error to get the mp3 file")
                 return
             }
@@ -602,7 +797,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
         }
     
     private func playJacksonAudio() {
-        guard let url = Bundle.main.url(forResource: "jackson-quote", withExtension: "mp3") else {
+        guard let url = Bundle.main.url(forResource: "jackson-quote 2", withExtension: "mp3") else {
                 print("error to get the mp3 file")
                 return
             }
@@ -867,12 +1062,128 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
                 recordingButton.setTitle("Recording Not Available", for: [])
             }
         }
-    
+
     }
-    
-    
+
+    // MARK: Community Trigger UI
+
+    private func setUpCommunityUI() {
+        signInButton.addTarget(self, action: #selector(signInTapped), for: .touchUpInside)
+
+        uploadButton.setTitle("Upload", for: .normal)
+        uploadButton.setTitleColor(.white, for: .normal)
+        uploadButton.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        uploadButton.layer.cornerRadius = 8
+        uploadButton.contentEdgeInsets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 12)
+        uploadButton.addTarget(self, action: #selector(uploadTapped), for: .touchUpInside)
+
+        reportButton.setTitle("Report", for: .normal)
+        reportButton.setTitleColor(.white, for: .normal)
+        reportButton.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        reportButton.layer.cornerRadius = 8
+        reportButton.contentEdgeInsets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 12)
+        reportButton.addTarget(self, action: #selector(reportTapped), for: .touchUpInside)
+
+        let stack = UIStackView(arrangedSubviews: [signInButton, uploadButton, reportButton])
+        stack.axis = .horizontal
+        stack.spacing = 8
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stack)
+
+        NSLayoutConstraint.activate([
+            stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 12),
+            stack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12)
+        ])
+    }
+
+    private func loadCommunityTriggers() {
+        Task {
+            do {
+                let dynamicImages = try await TriggerService.shared.fetchApprovedTriggers()
+                guard !dynamicImages.isEmpty else { return }
+
+                await MainActor.run {
+                    let configuration = ARImageTrackingConfiguration()
+                    let bundledImages = ARReferenceImage.referenceImages(inGroupNamed: "kettleImages", bundle: Bundle.main) ?? []
+                    configuration.trackingImages = bundledImages.union(Set(dynamicImages))
+                    configuration.maximumNumberOfTrackedImages = 10
+                    self.sceneView.session.run(configuration)
+                }
+            } catch {
+                print("Failed to load community triggers: \(error)")
+            }
+        }
+    }
+
+    private func refreshAuthUI() {
+        Task {
+            let signedIn = await SupabaseManager.shared.isSignedIn
+            await MainActor.run {
+                self.signInButton.isHidden = signedIn
+                self.uploadButton.isHidden = !signedIn
+                self.reportButton.isHidden = !signedIn
+            }
+        }
+    }
+
+    @objc private func signInTapped() {
+        let request = ASAuthorizationAppleIDProvider().createRequest()
+        request.requestedScopes = [.fullName, .email]
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = self
+        controller.presentationContextProvider = self
+        controller.performRequests()
+    }
+
+    @objc private func uploadTapped() {
+        let uploadVC = UploadViewController()
+        let nav = UINavigationController(rootViewController: uploadVC)
+        present(nav, animated: true)
+    }
+
+    @objc private func reportTapped() {
+        guard let trigger = activeDynamicTrigger else {
+            let alert = UIAlertController(
+                title: "Nothing to report",
+                message: "Point the camera at a community trigger first.",
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+            return
+        }
+        ReportContentHelper.presentReportFlow(for: trigger, from: self)
+    }
+
 }
-    
-    
-    
+
+extension ViewController: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
+
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        view.window ?? ASPresentationAnchor()
+    }
+
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        guard
+            let credential = authorization.credential as? ASAuthorizationAppleIDCredential,
+            let identityTokenData = credential.identityToken,
+            let identityToken = String(data: identityTokenData, encoding: .utf8)
+        else { return }
+
+        Task {
+            do {
+                try await SupabaseManager.shared.client.auth.signInWithIdToken(
+                    credentials: OpenIDConnectCredentials(provider: .apple, idToken: identityToken)
+                )
+                await MainActor.run { self.refreshAuthUI() }
+            } catch {
+                print("Sign in with Apple failed: \(error)")
+            }
+        }
+    }
+
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("Sign in with Apple error: \(error)")
+    }
+}
 

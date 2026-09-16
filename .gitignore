@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# Xcode
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+DerivedData/
+*.moved-aside
+*.hmap
+*.ipa
+*.xcarchive
+
+# Swift Package Manager
+.swiftpm/
+.build/
+
+# CocoaPods (uncomment if adopted later)
+# Pods/
+
+# Secrets (Supabase URL/anon key) — commit Secrets.example.plist instead
+MagicKettle/Secrets.plist
