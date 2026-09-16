@@ -18,7 +18,6 @@
 		0687FFD32E041C3D00B6482F /* jackson-quote 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0687FFD02E041C3D00B6482F /* jackson-quote 2.mp3 */; };
 		06A738EE2D83B4A2003C91CB /* mandarin2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 06A738ED2D83B4A2003C91CB /* mandarin2.mp4 */; };
 		06A738F02D83B4E4003C91CB /* mandarin3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 06A738EF2D83B4E4003C91CB /* mandarin3.mp4 */; };
-		06A738F22D83B70D003C91CB /* videoplayback.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 06A738F12D83B70D003C91CB /* videoplayback.mp4 */; };
 		06B01F082E02C3690064E0F5 /* hamilton-quote.aif in Resources */ = {isa = PBXBuildFile; fileRef = 06B01F072E02C3690064E0F5 /* hamilton-quote.aif */; };
 		06B01F092E02C3690064E0F5 /* hamilton-quote.aif in Resources */ = {isa = PBXBuildFile; fileRef = 06B01F072E02C3690064E0F5 /* hamilton-quote.aif */; };
 		06B01F0A2E02C3690064E0F5 /* hamilton-quote.aif in Resources */ = {isa = PBXBuildFile; fileRef = 06B01F072E02C3690064E0F5 /* hamilton-quote.aif */; };
@@ -99,7 +98,6 @@
 		0687FFD02E041C3D00B6482F /* jackson-quote 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "jackson-quote 2.mp3"; sourceTree = "<group>"; };
 		06A738ED2D83B4A2003C91CB /* mandarin2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mandarin2.mp4; sourceTree = "<group>"; };
 		06A738EF2D83B4E4003C91CB /* mandarin3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mandarin3.mp4; sourceTree = "<group>"; };
-		06A738F12D83B70D003C91CB /* videoplayback.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = videoplayback.mp4; sourceTree = "<group>"; };
 		06B01F072E02C3690064E0F5 /* hamilton-quote.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hamilton-quote.aif"; sourceTree = "<group>"; };
 		06FF37102C612D8900523770 /* twister.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = twister.mp4; sourceTree = "<group>"; };
 		06FF37122C612F6300523770 /* timmes.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = timmes.mp4; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 				38CD14C725763B0000AA0B95 /* sensodyne.mp4 */,
 				06A738ED2D83B4A2003C91CB /* mandarin2.mp4 */,
 				06A738EF2D83B4E4003C91CB /* mandarin3.mp4 */,
-				06A738F12D83B70D003C91CB /* videoplayback.mp4 */,
 				38CD14D425764B6600AA0B95 /* promised-land.mp4 */,
 				06FF37102C612D8900523770 /* twister.mp4 */,
 				06FF37122C612F6300523770 /* timmes.mp4 */,
@@ -378,7 +375,6 @@
 				06A738F02D83B4E4003C91CB /* mandarin3.mp4 in Resources */,
 				38CD14D525764B6700AA0B95 /* promised-land.mp4 in Resources */,
 				38CD147F2575CF4400AA0B95 /* one-dollar.mp4 in Resources */,
-				06A738F22D83B70D003C91CB /* videoplayback.mp4 in Resources */,
 				06B01F082E02C3690064E0F5 /* hamilton-quote.aif in Resources */,
 				0687FFD12E041C3D00B6482F /* jackson-quote 2.mp3 in Resources */,
 				0687FFC92E04196500B6482F /* washington-quote 2.mp3 in Resources */,
