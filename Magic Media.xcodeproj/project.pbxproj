@@ -33,6 +33,7 @@
 		EBD88F5F4C48D0D640D59B50 /* TriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A429CA49E8C77DB9EB6DDD08 /* TriggerService.swift */; };
 		5749556192DF07C2171DB48E /* ReportContentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23BBB59F0F6C26AD4C8EA4 /* ReportContentHelper.swift */; };
 		2642794383988266A77066E4 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CE156CC128F5B8E1462726 /* UploadViewController.swift */; };
+		FB1FF3F0FB3EA99CCA7E071A /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = E39B8E1D66872BDE2F7A4FBE /* Supabase */; };
 		38C92E60255BC64600819B12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C92E5E255BC64600819B12 /* Main.storyboard */; };
 		38C92E62255BC64800819B12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38C92E61255BC64800819B12 /* Assets.xcassets */; };
 		38C92E65255BC64800819B12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C92E63255BC64800819B12 /* LaunchScreen.storyboard */; };
@@ -143,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB1FF3F0FB3EA99CCA7E071A /* Supabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +278,9 @@
 			dependencies = (
 			);
 			name = "Magic Media";
+			packageProductDependencies = (
+				E39B8E1D66872BDE2F7A4FBE /* Supabase */,
+			);
 			productName = MagicKettle;
 			productReference = 38C92E55255BC64600819B12 /* Magic Media.app */;
 			productType = "com.apple.product-type.application";
@@ -347,6 +352,9 @@
 				Base,
 			);
 			mainGroup = 38C92E4C255BC64600819B12;
+			packageReferences = (
+				BC6FFAB45E30ABED6F8E4356 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			productRefGroup = 38C92E56255BC64600819B12 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -556,7 +564,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -611,7 +619,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -669,7 +677,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6PDFYXL936;
 				INFOPLIST_FILE = MagicKettleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -691,7 +699,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6PDFYXL936;
 				INFOPLIST_FILE = MagicKettleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -785,6 +793,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BC6FFAB45E30ABED6F8E4356 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E39B8E1D66872BDE2F7A4FBE /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC6FFAB45E30ABED6F8E4356 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 38C92E4D255BC64600819B12 /* Project object */;
 }
