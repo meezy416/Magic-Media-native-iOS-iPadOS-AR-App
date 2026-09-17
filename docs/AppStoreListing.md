@@ -93,3 +93,20 @@ Not drafted — optional field, can be left blank. Would need a real landing pag
 ## Age Rating
 
 Not drafted — this is a questionnaire filled out directly in App Store Connect (violence, mature content, user-generated content, etc.), not free-text copy. Given the app has unmoderated-until-reviewed user uploads, expect to answer "yes" to the user-generated content question.
+
+## App Review Information — Sign-In
+
+Checked against Apple's own App Review guidance (not just common developer assumption): there is **no formally documented blanket exception** stating that apps using only Sign in with Apple can skip providing demo credentials — Apple's official copy just generically says to provide demo account login credentials. In practice reviewers can and do complete Sign in with Apple using their own Apple ID, but that's community practice, not a guaranteed written policy, so relying on it alone carries some risk of a "could not sign in" rejection under Guideline 2.1.
+
+Magic Media sidesteps this rather than relying on the unwritten exception: **no account is required to use the core AR-scanning feature at all** — Sign in with Apple is only needed for the optional Upload/Report/Account features. So:
+
+- Set **"Sign-in required"** to **No** in App Review Information.
+- Add a note in the **Notes** field: *"No account is required to use the app's core AR scanning feature. Sign in with Apple is available for the optional upload feature — App Review can sign in with any Apple ID to test it."*
+
+## Monetization — In-App Purchase Requirement for Brand Deals
+
+If the brand/business tier discussed for future monetization (paying for instant-approved triggers + analytics) is ever built **as a feature inside the app** — e.g. an in-app toggle or dashboard — it will need to go through Apple's In-App Purchase system, per Guideline 3.1.1 and specifically **3.1.3(g) Advertising Management Apps**:
+
+> "Digital purchases for content that is experienced or consumed in an app, including buying advertisements to display in the same app (such as sales of 'boosts' for posts in a social media app) must use in-app purchase."
+
+Paying to skip the moderation queue is priority treatment within the same app that displays the content — directly analogous to the "boosts" example Apple calls out. The only way to legitimately avoid IAP here: make it a genuinely external business arrangement — no in-app toggle, no code-level distinction, priority review handled purely as a manual/operational choice, and analytics delivered outside the app (email/PDF, not an in-app screen). If any of that becomes a visible, purchasable feature inside the app itself, IAP applies and Apple takes its cut.
