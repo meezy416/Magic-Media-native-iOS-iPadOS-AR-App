@@ -56,6 +56,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
     private let signInButton = ASAuthorizationAppleIDButton(type: .signIn, style: .black)
     private let uploadButton = UIButton(type: .system)
     private let reportButton = UIButton(type: .system)
+    private let signOutButton = UIButton(type: .system)
     private var communityUIStack: UIStackView!
 
     override func viewDidLoad() {
@@ -77,11 +78,22 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
     
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        // Configure the SFSpeechRecognizer object already
-        // stored in a local member variable.
+
         speechRecognizer.delegate = self
-        
+
+        if UserDefaults.standard.bool(forKey: OnboardingViewController.hasSeenOnboardingKey) {
+            requestSpeechAuthorization()
+        } else {
+            let onboarding = OnboardingViewController()
+            onboarding.modalPresentationStyle = .fullScreen
+            onboarding.onGetStarted = { [weak self] in
+                self?.requestSpeechAuthorization()
+            }
+            present(onboarding, animated: true)
+        }
+    }
+
+    private func requestSpeechAuthorization() {
         // Asynchronously make the authorization request.
         SFSpeechRecognizer.requestAuthorization { authStatus in
 
@@ -1092,7 +1104,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
         reportButton.contentEdgeInsets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 12)
         reportButton.addTarget(self, action: #selector(reportTapped), for: .touchUpInside)
 
-        let stack = UIStackView(arrangedSubviews: [signInButton, uploadButton, reportButton])
+        signOutButton.setTitle("Sign Out", for: .normal)
+        signOutButton.setTitleColor(.white, for: .normal)
+        signOutButton.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        signOutButton.layer.cornerRadius = 8
+        signOutButton.contentEdgeInsets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 12)
+        signOutButton.addTarget(self, action: #selector(signOutTapped), for: .touchUpInside)
+
+        let stack = UIStackView(arrangedSubviews: [signInButton, uploadButton, reportButton, signOutButton])
         stack.axis = .horizontal
         stack.spacing = 8
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -1131,6 +1150,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
                 self.signInButton.isHidden = signedIn
                 self.uploadButton.isHidden = !signedIn
                 self.reportButton.isHidden = !signedIn
+                self.signOutButton.isHidden = !signedIn
             }
         }
     }
@@ -1142,6 +1162,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
         controller.delegate = self
         controller.presentationContextProvider = self
         controller.performRequests()
+    }
+
+    @objc private func signOutTapped() {
+        Task {
+            try? await SupabaseManager.shared.client.auth.signOut()
+            await MainActor.run { self.refreshAuthUI() }
+        }
     }
 
     @objc private func uploadTapped() {
