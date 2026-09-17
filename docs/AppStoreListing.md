@@ -63,9 +63,32 @@ Every user-submitted trigger is reviewed before it becomes visible to anyone els
 • Under-the-hood stability and privacy improvements
 ```
 
-## Support URL / Marketing URL
+## Category
 
-Not drafted — these need a real, working page (support contact + optional marketing site). Support URL is required by App Store Connect; at minimum it needs to resolve to something with a way to contact you (could be as simple as a page with the contact email from the Privacy Policy).
+**Primary: Photo & Video**
+Matches the actual mechanic — camera-based image recognition with photo/video overlay. This is the category Apple's own reviewers will expect given what the app does at launch.
+
+**Secondary: Entertainment**
+Covers the discovery/browsing angle of community-uploaded triggers, without being the primary description of the app's function.
+
+## Pricing and Availability
+
+**Price: Free**
+No in-app purchase or subscription infrastructure exists in the codebase — that's separate, unbuilt work. Charging upfront would also contradict the free-to-scan positioning discussed earlier (viewing/scanning triggers free, monetization later via a paid publish tier or brand deals, not the app price itself).
+
+**Availability: All territories**
+No content or legal reason to restrict by country — currency/price conversion per territory is handled automatically by the App Store.
+
+**Release: Automatically release this version**
+Ship as soon as it clears review; no reason to hold for a coordinated release date at this stage.
+
+## Support URL
+
+Done — published at https://claude.ai/artifact/1gs6gn9xuNdWBgUR7Ym3v6 (FAQ + contact email). Make sure it's set to public in the share menu before pasting it into App Store Connect.
+
+## Marketing URL
+
+Not drafted — optional field, can be left blank. Would need a real landing page if added later.
 
 ## Age Rating
 
