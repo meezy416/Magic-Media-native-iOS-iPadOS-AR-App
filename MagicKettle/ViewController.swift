@@ -56,7 +56,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
     private let signInButton = ASAuthorizationAppleIDButton(type: .signIn, style: .black)
     private let uploadButton = UIButton(type: .system)
     private let reportButton = UIButton(type: .system)
-    private let signOutButton = UIButton(type: .system)
+    private let accountButton = UIButton(type: .system)
     private var communityUIStack: UIStackView!
 
     override func viewDidLoad() {
@@ -1104,14 +1104,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
         reportButton.contentEdgeInsets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 12)
         reportButton.addTarget(self, action: #selector(reportTapped), for: .touchUpInside)
 
-        signOutButton.setTitle("Sign Out", for: .normal)
-        signOutButton.setTitleColor(.white, for: .normal)
-        signOutButton.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        signOutButton.layer.cornerRadius = 8
-        signOutButton.contentEdgeInsets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 12)
-        signOutButton.addTarget(self, action: #selector(signOutTapped), for: .touchUpInside)
+        accountButton.setTitle("Account", for: .normal)
+        accountButton.setTitleColor(.white, for: .normal)
+        accountButton.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        accountButton.layer.cornerRadius = 8
+        accountButton.contentEdgeInsets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 12)
+        accountButton.addTarget(self, action: #selector(accountTapped), for: .touchUpInside)
 
-        let stack = UIStackView(arrangedSubviews: [signInButton, uploadButton, reportButton, signOutButton])
+        let stack = UIStackView(arrangedSubviews: [signInButton, uploadButton, reportButton, accountButton])
         stack.axis = .horizontal
         stack.spacing = 8
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -1150,7 +1150,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
                 self.signInButton.isHidden = signedIn
                 self.uploadButton.isHidden = !signedIn
                 self.reportButton.isHidden = !signedIn
-                self.signOutButton.isHidden = !signedIn
+                self.accountButton.isHidden = !signedIn
             }
         }
     }
@@ -1164,10 +1164,64 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
         controller.performRequests()
     }
 
-    @objc private func signOutTapped() {
+    @objc private func accountTapped() {
+        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Sign Out", style: .default) { [weak self] _ in
+            self?.signOut()
+        })
+        sheet.addAction(UIAlertAction(title: "Delete Account", style: .destructive) { [weak self] _ in
+            self?.confirmDeleteAccount()
+        })
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(sheet, animated: true)
+    }
+
+    private func signOut() {
         Task {
             try? await SupabaseManager.shared.client.auth.signOut()
             await MainActor.run { self.refreshAuthUI() }
+        }
+    }
+
+    private func confirmDeleteAccount() {
+        let alert = UIAlertController(
+            title: "Delete Account?",
+            message: "This permanently deletes your account and everything you've uploaded. This can't be undone.",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Delete Account", style: .destructive) { [weak self] _ in
+            self?.deleteAccount()
+        })
+        present(alert, animated: true)
+    }
+
+    private func deleteAccount() {
+        Task {
+            do {
+                _ = try await SupabaseManager.shared.client.functions.invoke("delete-account")
+                try? await SupabaseManager.shared.client.auth.signOut()
+                await MainActor.run {
+                    self.refreshAuthUI()
+                    let confirmation = UIAlertController(
+                        title: "Account Deleted",
+                        message: "Your account and everything you uploaded have been removed.",
+                        preferredStyle: .alert
+                    )
+                    confirmation.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(confirmation, animated: true)
+                }
+            } catch {
+                await MainActor.run {
+                    let failure = UIAlertController(
+                        title: "Couldn't delete account",
+                        message: error.localizedDescription,
+                        preferredStyle: .alert
+                    )
+                    failure.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(failure, animated: true)
+                }
+            }
         }
     }
 
