@@ -21,3 +21,10 @@ DerivedData/
 
 # Secrets (Supabase URL/anon key) — commit Secrets.example.plist instead
 MagicKettle/Secrets.plist
+
+# Archive/export output (contains the .ipa, ExportOptions.plist, distribution logs)
+/build/
+
+# Raw on-device screenshots dropped at the project root for review — the
+# polished/composited versions live in docs/AppStoreScreenshots/ instead
+/IMG_*.PNG
