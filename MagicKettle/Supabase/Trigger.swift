@@ -73,3 +73,13 @@ struct NewReport: Codable {
         case reason
     }
 }
+
+/// Mirrors an insert into `public.trigger_scans` — logged once per recognized
+/// community trigger, for the external brand analytics page.
+struct NewScan: Codable {
+    let triggerId: UUID
+
+    enum CodingKeys: String, CodingKey {
+        case triggerId = "trigger_id"
+    }
+}

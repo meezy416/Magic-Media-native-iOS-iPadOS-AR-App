@@ -726,6 +726,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
             if let trigger = TriggerService.shared.triggersByReferenceName[imageAnchor.referenceImage.name ?? ""] {
 
                 activeDynamicTrigger = trigger
+                logScan(for: trigger)
 
                 let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
 
@@ -1139,6 +1140,22 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARCoachingOverlayView
                 }
             } catch {
                 print("Failed to load community triggers: \(error)")
+            }
+        }
+    }
+
+    /// Fire-and-forget scan event, used by the external brand analytics page.
+    /// Works whether or not the user is signed in, since viewing/scanning
+    /// never requires an account.
+    private func logScan(for trigger: Trigger) {
+        Task {
+            do {
+                try await SupabaseManager.shared.client
+                    .from("trigger_scans")
+                    .insert(NewScan(triggerId: trigger.id))
+                    .execute()
+            } catch {
+                print("Failed to log scan for trigger \(trigger.id): \(error)")
             }
         }
     }
