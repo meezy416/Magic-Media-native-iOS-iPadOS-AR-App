@@ -28,3 +28,7 @@ MagicKettle/Secrets.plist
 # Raw on-device screenshots dropped at the project root for review — the
 # polished/composited versions live in docs/AppStoreScreenshots/ instead
 /IMG_*.PNG
+
+# Cloudflare Wrangler local cache/state (credentials live outside the repo,
+# in ~/Library/Preferences/.wrangler/ — this is just per-run cache)
+.wrangler/

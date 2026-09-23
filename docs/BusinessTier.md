@@ -15,8 +15,16 @@ How the brand-partnership offering works, and where each piece lives. Built to s
 
    **To get a trigger's ID**: Supabase Studio → Table Editor → `triggers` → copy the `id` column for the row you want.
 
-4. **Brand pitch page** — https://claude.ai/artifact/6zm8T5MUY3XLTBiomLWZnK
-   The actual sales asset — explains the offer, how it works, what's included, and routes to your email. This one's fine as a Claude Artifact since it's static (no live data fetching).
+4. **Brand pitch page** — https://magicmediaapp.com
+   The actual sales asset — explains the offer, how it works, what's included, and routes to your email. Source lives in `web/magicmediaapp.com/` and deploys as a Cloudflare Worker with static assets (not Pages — Cloudflare now steers new deployments to Workers). Domain `magicmediaapp.com` was bought via Cloudflare Registrar and its zone is in the same Cloudflare account, so the Worker is bound to it directly via a Custom Domain route — no separate DNS setup needed. Also still live at the original Claude Artifact (https://claude.ai/artifact/6zm8T5MUY3XLTBiomLWZnK) if that's ever useful, but the real domain is the one to share.
+
+   **To redeploy after editing `web/magicmediaapp.com/public/index.html`**:
+   ```
+   cd web/magicmediaapp.com && npx wrangler deploy
+   ```
+   Needs `wrangler` authenticated (`npx wrangler login`) with an account that has the `magicmediaapp.com` zone.
+
+   The hero proof image is referenced via its raw GitHub URL (`raw.githubusercontent.com/.../docs/AppStoreScreenshots/1-hero.png`) rather than bundled into the deploy — keeps the deploy tiny and the image stays in sync with the repo automatically. If the repo goes private or that file moves, this breaks.
 
 ## Also published (from earlier work, linked here for the full picture)
 
