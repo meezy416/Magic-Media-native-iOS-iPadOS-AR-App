@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magic Media for Brands</title>
+<meta name="description" content="Attach video, audio, or a 3D model to your packaging, print, and marketing materials — the Magic Media brand partnership offering.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --paper: #f4f3ef;
+    --surface: #fbfaf7;
+    --ink: #201f1c;
+    --ink-muted: #5b584f;
+    --ink-faint: #8a8577;
+    --rule: #d9d5c9;
+    --rule-strong: #c7c2b3;
+    --gold: #a96a1f;
+    --gold-ink: #7c4d16;
+    --gold-fill: #c1852e;
+    --teal: #2f6e68;
+    --teal-bg: #e4efed;
+    --amber-bg: #f4e6d3;
+    --hero-bg: #1a1917;
+    --hero-ink: #ede9e0;
+    --hero-muted: #a89f8f;
+    --shadow: 0 1px 2px rgba(32,31,28,0.06), 0 8px 24px -12px rgba(32,31,28,0.12);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1a1917; --surface: #221f1b; --ink: #ede9e0; --ink-muted: #a89f8f;
+      --ink-faint: #776f60; --rule: #3a362e; --rule-strong: #4a4536;
+      --gold: #d9a34b; --gold-ink: #e8b968; --gold-fill: #d9a34b;
+      --teal: #5cb0a4; --teal-bg: #1f2f2c; --amber-bg: #2c2418;
+      --hero-bg: #0f0e0c; --hero-ink: #ede9e0; --hero-muted: #8f8676;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1a1917; --surface: #221f1b; --ink: #ede9e0; --ink-muted: #a89f8f;
+    --ink-faint: #776f60; --rule: #3a362e; --rule-strong: #4a4536;
+    --gold: #d9a34b; --gold-ink: #e8b968; --gold-fill: #d9a34b;
+    --teal: #5cb0a4; --teal-bg: #1f2f2c; --amber-bg: #2c2418;
+    --hero-bg: #0f0e0c; --hero-ink: #ede9e0; --hero-muted: #8f8676;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--paper); }
+  body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.65; margin: 0; }
+  ::selection { background: var(--amber-bg); color: var(--ink); }
+  img { max-width: 100%; }
+
+  a.cta-link { color: var(--gold-ink); }
+
+  /* ---- Hero ---- */
+  .hero {
+    background: var(--hero-bg); color: var(--hero-ink);
+    padding: 88px 24px 76px;
+  }
+  .hero-inner { max-width: 900px; margin: 0 auto; }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12.5px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold); margin: 0 0 20px; display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--gold); display: inline-block; }
+  .hero h1 {
+    font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900;
+    font-size: clamp(42px, 7vw, 82px); text-transform: uppercase; line-height: 0.94;
+    margin: 0 0 26px; text-wrap: balance; letter-spacing: 0.005em;
+  }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero .lede {
+    font-size: clamp(19px, 2.2vw, 23px); color: var(--hero-muted); max-width: 62ch; margin: 0 0 40px;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    font-family: 'IBM Plex Mono', monospace; font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase; text-decoration: none; padding: 15px 26px; border-radius: 6px;
+    background: var(--gold); color: var(--hero-bg); display: inline-block;
+  }
+  .btn-primary:hover { background: #e8b968; }
+  .btn-secondary {
+    font-family: 'IBM Plex Mono', monospace; font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase; text-decoration: none; padding: 15px 26px; border-radius: 6px;
+    border: 1px solid #4a4536; color: var(--hero-ink); display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ---- Proof shot ---- */
+  .proof {
+    max-width: 900px; margin: -48px auto 0; padding: 0 24px; position: relative; z-index: 2;
+  }
+  .proof-frame {
+    border-radius: 14px; overflow: hidden; box-shadow: 0 24px 60px -20px rgba(0,0,0,0.35); border: 1px solid var(--rule-strong);
+    background: var(--surface);
+  }
+  .proof-frame img { display: block; width: 100%; height: auto; }
+  .proof-caption {
+    text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--ink-faint);
+    margin-top: 14px;
+  }
+
+  main { max-width: 900px; margin: 0 auto; padding: 90px 24px 0; }
+  section { margin-bottom: 84px; }
+
+  .section-eyebrow {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold-ink); margin: 0 0 10px;
+  }
+  h2 {
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: clamp(28px, 4vw, 38px);
+    text-transform: uppercase; margin: 0 0 20px; line-height: 1.02; text-wrap: balance;
+  }
+  p.body-text { max-width: 62ch; color: var(--ink-muted); font-size: 18px; }
+
+  /* ---- How it works ---- */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 4px; margin-top: 36px; }
+  .step {
+    padding: 26px 22px; background: var(--surface); border: 1px solid var(--rule-strong); box-shadow: var(--shadow);
+  }
+  .step:first-child { border-radius: 8px 0 0 8px; }
+  .step:last-child { border-radius: 0 8px 8px 0; }
+  @media (max-width: 600px) {
+    .step:first-child { border-radius: 8px 8px 0 0; }
+    .step:last-child { border-radius: 0 0 8px 8px; }
+  }
+  .step-num {
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 32px; color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .step h3 {
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 17px; text-transform: uppercase;
+    letter-spacing: 0.01em; margin: 0 0 8px;
+  }
+  .step p { font-size: 15px; color: var(--ink-muted); margin: 0; }
+
+  /* ---- Feature ledger ---- */
+  .ledger { border: 1px solid var(--rule-strong); border-radius: 8px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow); margin-top: 30px; }
+  .ledger-row { display: grid; grid-template-columns: 28px 1fr; gap: 16px; padding: 18px 22px; border-bottom: 1px solid var(--rule); align-items: start; }
+  .ledger-row:last-child { border-bottom: none; }
+  .ledger-row .check { color: var(--teal); font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 16px; }
+  .ledger-row .label { font-weight: 600; }
+  .ledger-row .desc { color: var(--ink-muted); font-size: 15.5px; margin-top: 2px; }
+
+  /* ---- Honesty block ---- */
+  blockquote.honest {
+    margin: 0; padding: 22px 26px; border-left: 3px solid var(--gold); background: var(--amber-bg);
+    border-radius: 0 8px 8px 0; font-size: 16.5px; color: var(--ink); max-width: 62ch;
+  }
+
+  /* ---- CTA ---- */
+  .cta-band { background: var(--hero-bg); color: var(--hero-ink); padding: 76px 24px; margin: 0; }
+  .cta-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+  .cta-band h2 { color: var(--hero-ink); }
+  .cta-band p { color: var(--hero-muted); font-size: 17px; max-width: 52ch; margin: 0 auto 34px; }
+  .contact-card {
+    display: inline-flex; flex-direction: column; gap: 4px; text-align: left; padding: 22px 28px;
+    border: 1px solid #3a362e; border-radius: 8px; background: #221f1b;
+  }
+  .contact-card .k { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--hero-muted); }
+  .contact-card .v a { color: var(--gold); font-family: 'IBM Plex Mono', monospace; font-size: 16px; text-decoration: none; }
+  .contact-card .v a:hover { text-decoration: underline; }
+
+  footer { max-width: 900px; margin: 0 auto; padding: 40px 24px 64px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-faint); border-top: 1px solid var(--rule); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Magic Media for Brands</p>
+    <h1>Your Packaging Just<br>Learned To <em>Move</em>.</h1>
+    <p class="lede">Attach video, audio, or a 3D model to anything you print — a package, a poster, a menu, a business card. Customers scan it with their camera in Magic Media, and it comes alive. No app of your own to build.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="mailto:jamalcampbell@outlook.com?subject=Magic%20Media%20for%20Brands">Start a Conversation</a>
+      <a class="btn-secondary" href="#how-it-works">See How It Works</a>
+    </div>
+  </div>
+</div>
+
+<div class="proof">
+  <div class="proof-frame">
+    <img src="https://raw.githubusercontent.com/meezy416/Magic-Media-native-iOS-iPadOS-AR-App/main/docs/AppStoreScreenshots/1-hero.png" alt="A video playing in augmented reality on top of a scanned dollar bill in the Magic Media app">
+  </div>
+  <p class="proof-caption">A real scan in the Magic Media app — the video below is anchored live to the printed image above it.</p>
+</div>
+
+<main>
+
+  <section id="how-it-works">
+    <p class="section-eyebrow">How It Works</p>
+    <h2>From Print to Playable in Three Steps</h2>
+    <p class="body-text">You bring the print material and the content. We handle the recognition, the hosting, and the review.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Send Us Your Material</h3>
+        <p>A photo of your packaging, poster, label, or print piece — whatever your customers will actually be looking at.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>We Build Your Trigger</h3>
+        <p>Your target image gets paired with your video, audio, or 3D content and reviewed before it goes live.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Customers Scan &amp; Watch</h3>
+        <p>Anyone with Magic Media points their camera at your material and your content plays, anchored right on top of it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-eyebrow">What's Included</p>
+    <h2>Built for Businesses That Print Things</h2>
+    <div class="ledger">
+      <div class="ledger-row">
+        <div class="check">✓</div>
+        <div><div class="label">A dedicated AR trigger tied to your material</div><div class="desc">Your image, your content — recognized instantly by anyone's camera in the app.</div></div>
+      </div>
+      <div class="ledger-row">
+        <div class="check">✓</div>
+        <div><div class="label">Reviewed before it goes live</div><div class="desc">Every trigger is checked before it's visible to app users — yours included.</div></div>
+      </div>
+      <div class="ledger-row">
+        <div class="check">✓</div>
+        <div><div class="label">A private analytics link</div><div class="desc">See how many times your trigger has been scanned, with a daily breakdown — no login required, just a link.</div></div>
+      </div>
+      <div class="ledger-row">
+        <div class="check">✓</div>
+        <div><div class="label">No app to build or maintain</div><div class="desc">Your customers already have Magic Media, or download it free — you're not shipping your own AR app.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-eyebrow">Straight Talk</p>
+    <h2>This Is Early, and We're Upfront About It</h2>
+    <blockquote class="honest">
+      Magic Media just launched. There's no case-study wall of brand logos here yet — because there isn't one to show honestly. What you're getting is direct access to the person building this, a real working product you can test yourself in the App Store today, and pricing that's a conversation, not a rate card. If that's not what you're looking for, no hard feelings.
+    </blockquote>
+  </section>
+
+</main>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <p class="section-eyebrow" style="color:var(--gold)">Get In Touch</p>
+    <h2>Let's Put Your Print to Work</h2>
+    <p>Tell us what you're printing and what you want it to do. We'll tell you honestly whether Magic Media is a fit.</p>
+    <div class="contact-card">
+      <div class="k">Email</div>
+      <div class="v"><a href="mailto:jamalcampbell@outlook.com?subject=Magic%20Media%20for%20Brands">jamalcampbell@outlook.com</a></div>
+    </div>
+  </div>
+</div>
+
+<footer>Magic Media for Brands — Break Thruu Ent. See also our <a href="https://claude.ai/artifact/V8hp3r5icarPowzXKGTHPy" style="color:var(--gold-ink)">Privacy Policy</a> and <a href="https://claude.ai/artifact/1gs6gn9xuNdWBgUR7Ym3v6" style="color:var(--gold-ink)">Support</a> pages.</footer>
+
+</body>
+</html>
