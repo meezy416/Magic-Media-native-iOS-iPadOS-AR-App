@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Magic Media — Watch It Come Alive</title>
 <meta name="description" content="Point your camera at any photo, poster, or object and watch it come alive with video, audio, or 3D. Magic Media for iPhone and iPad.">
-<meta name="theme-color" content="#08080a">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%2308080a%27/%3E%3Crect x=%274.5%27 y=%274.5%27 width=%2723%27 height=%2723%27 fill=%27none%27 stroke=%27%23c1852e%27 stroke-width=%272%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27none%27 stroke=%27%23c1852e%27 stroke-width=%272%27/%3E%3C/svg%3E">
+<meta name="theme-color" content="#05030f">
+<link rel="icon" type="image/svg+xml" href="/media/appicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/appicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/appicon-180.png">
 
 
 <meta property="og:title" content="Magic Media — Watch It Come Alive">
@@ -36,7 +38,7 @@
     </span>
   </div>
   <div class="meta hud">Magic&nbsp;Media<br>Augmented&nbsp;Reality</div>
-  <div class="meta-r hud">Loading&nbsp;assets<br><span class="hud--gold">Stand&nbsp;by</span></div>
+  <div class="meta-r hud">Loading&nbsp;assets<br><span class="hud--accent">Stand&nbsp;by</span></div>
 </div>
 
 <!-- ======================================================================
@@ -67,6 +69,7 @@
 <nav class="tracker" id="tracker" aria-label="Section navigation">
   <a href="#hero"><span class="lbl">Index</span><span class="tick"></span></a>
   <a href="#manifesto"><span class="lbl">Premise</span><span class="tick"></span></a>
+  <a href="#explainer"><span class="lbl">The Film</span><span class="tick"></span></a>
   <a href="#ritual"><span class="lbl">The Ritual</span><span class="tick"></span></a>
   <a href="#dimension"><span class="lbl">Dimension</span><span class="tick"></span></a>
   <a href="#index"><span class="lbl">Catalogue</span><span class="tick"></span></a>
@@ -80,16 +83,17 @@
 
 <div class="corner-r hud" id="cornerR">
   <span data-clock>—</span><br>
-  <span class="hud--gold">iOS&nbsp;·&nbsp;iPadOS</span>
+  <span class="hud--accent">iOS&nbsp;·&nbsp;iPadOS</span>
 </div>
 
 <!-- MENU -->
 <div id="menu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
   <ol>
     <li><a href="#manifesto" data-menu-link><span class="n">01</span>Premise</a></li>
-    <li><a href="#ritual" data-menu-link><span class="n">02</span>The Ritual</a></li>
-    <li><a href="#index" data-menu-link><span class="n">03</span>Catalogue</a></li>
-    <li><a href="#contact" data-menu-link><span class="n">04</span>Contact</a></li>
+    <li><a href="#explainer" data-menu-link><span class="n">02</span>The Film</a></li>
+    <li><a href="#ritual" data-menu-link><span class="n">03</span>The Ritual</a></li>
+    <li><a href="#index" data-menu-link><span class="n">04</span>Catalogue</a></li>
+    <li><a href="#contact" data-menu-link><span class="n">05</span>Contact</a></li>
   </ol>
   <div class="menu-foot">
     <span class="hud">Magic Media · Augmented Reality</span>
@@ -114,7 +118,7 @@
     <div class="headline">
       <h1 class="display" data-split>
         Watch It
-        Come <span class="gold">Alive</span>
+        Come <span class="accent-type">Alive</span>
       </h1>
       <div class="sub" data-fade>
         <p>Point your camera at any photo, poster, or object. Magic&nbsp;Media recognises it in real time and lays video, audio, or a 3D model right where you're looking.</p>
@@ -145,17 +149,38 @@
 
     <div class="cols" data-stagger>
       <div>
-        <span class="hud hud--gold">On device</span>
+        <span class="hud hud--accent">On device</span>
         <p>Camera frames are processed entirely on your iPhone or iPad for tracking. Nothing is recorded. Nothing is uploaded.</p>
       </div>
       <div>
-        <span class="hud hud--gold">Instant</span>
+        <span class="hud hud--accent">Instant</span>
         <p>Recognition happens in real time against the live camera feed — the overlay is anchored the moment the surface is found.</p>
       </div>
       <div>
-        <span class="hud hud--gold">Open</span>
+        <span class="hud hud--accent">Open</span>
         <p>Attach your own video or audio to your own image and submit it. Once reviewed, anyone can discover it by scanning.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------------- EXPLAINER -->
+  <section id="explainer" data-section="The Film">
+    <div class="rail-head">
+      <span class="hud n">02</span>
+      <span class="hud">The Film — thirty seconds, start to finish</span>
+    </div>
+
+    <h2 class="display" data-split>
+      See The
+      Whole <span class="accent-type">Idea</span>
+    </h2>
+
+    <div class="player">
+      <span class="corner tl"></span><span class="corner br"></span>
+      <video controls playsinline preload="none" poster="/media/explainer.jpg">
+        <source src="/media/explainer.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
   </section>
 
@@ -216,7 +241,7 @@
     </div>
 
     <div class="caption">
-      <span class="hud hud--gold">02 — Dimension</span>
+      <span class="hud hud--accent">02 — Dimension</span>
       <h2 class="display" data-split>
         Not on
         the screen.
@@ -236,7 +261,7 @@
   <!-- --------------------------------------------------------------- INDEX -->
   <section id="index" data-section="Catalogue">
     <div class="rail-head">
-      <span class="hud n">03</span>
+      <span class="hud n">04</span>
       <span class="hud">Catalogue — what the library already recognises</span>
     </div>
 
@@ -283,19 +308,19 @@
 
     <div class="grid">
       <div>
-        <span class="hud hud--gold">Download</span>
+        <span class="hud hud--accent">Download</span>
         <a class="line-link" href="https://apps.apple.com/us/app/magic-media/id6812952790">App Store ↗</a>
       </div>
       <div>
-        <span class="hud hud--gold">Brands</span>
+        <span class="hud hud--accent">Brands</span>
         <a class="line-link" href="/brands">Partnership offering ↗</a>
       </div>
       <div>
-        <span class="hud hud--gold">Enquiries</span>
+        <span class="hud hud--accent">Enquiries</span>
         <a class="line-link" href="mailto:hello@magicmediaapp.com?subject=Magic%20Media">hello@magicmediaapp.com</a>
       </div>
       <div>
-        <span class="hud hud--gold">Platform</span>
+        <span class="hud hud--accent">Platform</span>
         <a class="line-link" href="#hero">iPhone · iPad · ARKit</a>
       </div>
     </div>

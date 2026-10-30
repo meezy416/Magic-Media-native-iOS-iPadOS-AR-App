@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="Magic Media app icon">
+<title>Magic Media</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1024" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#070844"/><stop offset="1" stop-color="#010219"/>
+</linearGradient>
+<clipPath id="squircle"><rect x="0" y="0" width="1024" height="1024" rx="228" ry="228"/></clipPath>
+</defs>
+<g clip-path="url(#squircle)">
+<rect width="1024" height="1024" fill="url(#bg)"/>
+<g id="layer-ring-back"><defs><linearGradient id="ringback_rg" x1="159" y1="364" x2="879" y2="364" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2C5BFF"/><stop offset="1" stop-color="#C23BFF"/></linearGradient></defs><g transform="rotate(-4.8 519 364)"><ellipse cx="519" cy="364" rx="360" ry="197" fill="none" stroke="url(#ringback_rg)" stroke-width="5"/></g></g>
+<g id="layer-panel"><defs>
+<linearGradient id="panel_pg" x1="291" y1="430" x2="740" y2="330" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#00E5FF"/><stop offset="0.46" stop-color="#5B3BFF"/><stop offset="1" stop-color="#FF2BF5"/></linearGradient>
+<linearGradient id="panel_rim" x1="291" y1="430" x2="740" y2="330" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#AEFBFF"/><stop offset="0.5" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFB4FE"/></linearGradient></defs><path d="M 291.0 317.0 Q 291.0 283.0 323.8 274.0 L 707.2 169.0 Q 740.0 160.0 740.0 194.0 L 740.0 507.0 Q 740.0 541.0 706.0 542.6 L 325.0 560.4 Q 291.0 562.0 291.0 528.0 Z" fill="url(#panel_pg)"/><path d="M 291.0 317.0 Q 291.0 283.0 323.8 274.0 L 707.2 169.0 Q 740.0 160.0 740.0 194.0 L 740.0 507.0 Q 740.0 541.0 706.0 542.6 L 325.0 560.4 Q 291.0 562.0 291.0 528.0 Z" fill="none" stroke="url(#panel_rim)" stroke-width="30" opacity="0.13" stroke-linejoin="round"/><path d="M 291.0 317.0 Q 291.0 283.0 323.8 274.0 L 707.2 169.0 Q 740.0 160.0 740.0 194.0 L 740.0 507.0 Q 740.0 541.0 706.0 542.6 L 325.0 560.4 Q 291.0 562.0 291.0 528.0 Z" fill="none" stroke="url(#panel_rim)" stroke-width="18" opacity="0.22" stroke-linejoin="round"/><path d="M 291.0 317.0 Q 291.0 283.0 323.8 274.0 L 707.2 169.0 Q 740.0 160.0 740.0 194.0 L 740.0 507.0 Q 740.0 541.0 706.0 542.6 L 325.0 560.4 Q 291.0 562.0 291.0 528.0 Z" fill="none" stroke="url(#panel_rim)" stroke-width="11" opacity="0.38" stroke-linejoin="round"/><path d="M 291.0 317.0 Q 291.0 283.0 323.8 274.0 L 707.2 169.0 Q 740.0 160.0 740.0 194.0 L 740.0 507.0 Q 740.0 541.0 706.0 542.6 L 325.0 560.4 Q 291.0 562.0 291.0 528.0 Z" fill="none" stroke="url(#panel_rim)" stroke-width="7" stroke-linejoin="round"/></g>
+<g id="layer-ring-front"><defs><linearGradient id="ringfront_rg" x1="152" y1="364" x2="886" y2="364" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4BE9FF"/><stop offset="1" stop-color="#FF4BF8"/></linearGradient></defs><g transform="rotate(-14.8 519 364)"><ellipse cx="519" cy="364" rx="367" ry="156" fill="none" stroke="url(#ringfront_rg)" stroke-width="32" opacity="0.26"/><ellipse cx="519" cy="364" rx="367" ry="156" fill="none" stroke="url(#ringfront_rg)" stroke-width="8"/></g></g>
+<g id="layer-plinth"><defs>
+<linearGradient id="plinth_face" x1="112" y1="730" x2="917" y2="730" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#00E5FF"/><stop offset="0.45" stop-color="#5B3BFF"/><stop offset="1" stop-color="#FF2BF5"/></linearGradient>
+<linearGradient id="plinth_side" x1="112" y1="770" x2="917" y2="770" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#0083B8"/><stop offset="0.45" stop-color="#2E1DBE"/><stop offset="1" stop-color="#B2129F"/></linearGradient>
+<radialGradient id="plinth_pool" cx="514" cy="716" r="300" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#FFFFFF" stop-opacity="0.96"/><stop offset="0.20" stop-color="#EAFBFF" stop-opacity="0.56"/>
+<stop offset="0.54" stop-color="#8FD6FF" stop-opacity="0.15"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient></defs><path d="M 112 730 L 514 826 L 514 876 L 112 780 Z" fill="url(#plinth_side)"/><path d="M 917 730 L 514 826 L 514 876 L 917 780 Z" fill="url(#plinth_side)"/><path d="M 112 730 L 514 634 L 917 730 L 514 826 Z" fill="url(#plinth_face)"/><path d="M 112 730 L 514 634 L 917 730 L 514 826 Z" fill="url(#plinth_pool)"/></g>
+</g>
+</svg>

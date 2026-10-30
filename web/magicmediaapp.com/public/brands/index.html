@@ -5,55 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Magic Media for Brands</title>
 <meta name="description" content="Attach video, audio, or a 3D model to your packaging, print, and marketing materials — the Magic Media brand partnership offering.">
+<meta name="theme-color" content="#05030f">
+<link rel="icon" type="image/svg+xml" href="/media/appicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/appicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/appicon-180.png">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
   :root {
-    --paper: #f4f3ef;
-    --surface: #fbfaf7;
-    --ink: #201f1c;
-    --ink-muted: #5b584f;
-    --ink-faint: #8a8577;
-    --rule: #d9d5c9;
-    --rule-strong: #c7c2b3;
-    --gold: #a96a1f;
-    --gold-ink: #7c4d16;
-    --gold-fill: #c1852e;
-    --teal: #2f6e68;
-    --teal-bg: #e4efed;
-    --amber-bg: #f4e6d3;
-    --hero-bg: #1a1917;
-    --hero-ink: #ede9e0;
-    --hero-muted: #a89f8f;
-    --shadow: 0 1px 2px rgba(32,31,28,0.06), 0 8px 24px -12px rgba(32,31,28,0.12);
+    --paper: #f3f4fb;
+    --surface: #ffffff;
+    --ink: #15142b;
+    --ink-muted: #56527d;
+    --ink-faint: #8b87ad;
+    --rule: #dcdcee;
+    --rule-strong: #c5c4e0;
+    --accent: #4a2fd6;
+    --accent-ink: #3a22ad;
+    --accent-fill: #5b3bff;
+    --aqua: #0f7c9b;
+    --aqua-bg: #e2f5fb;
+    --tint-bg: #ece4ff;
+    --hero-bg: #05030f;
+    --hero-ink: #ecebf7;
+    --hero-muted: #9a94c4;
+    --shadow: 0 1px 2px rgba(21,20,43,0.06), 0 8px 24px -12px rgba(21,20,43,0.16);
   }
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper: #1a1917; --surface: #221f1b; --ink: #ede9e0; --ink-muted: #a89f8f;
-      --ink-faint: #776f60; --rule: #3a362e; --rule-strong: #4a4536;
-      --gold: #d9a34b; --gold-ink: #e8b968; --gold-fill: #d9a34b;
-      --teal: #5cb0a4; --teal-bg: #1f2f2c; --amber-bg: #2c2418;
-      --hero-bg: #0f0e0c; --hero-ink: #ede9e0; --hero-muted: #8f8676;
-      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+      --paper: #0b0a1d; --surface: #141231; --ink: #ecebf7; --ink-muted: #9a94c4;
+      --ink-faint: #6b659a; --rule: #2a2752; --rule-strong: #3c3873;
+      --accent: #39ddfc; --accent-ink: #7ef0ff; --accent-fill: #5b3bff;
+      --aqua: #5cd8e8; --aqua-bg: #10283c; --tint-bg: #231a4d;
+      --hero-bg: #05030f; --hero-ink: #ecebf7; --hero-muted: #9a94c4;
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -12px rgba(0,0,0,0.6);
     }
   }
   :root[data-theme="dark"] {
-    --paper: #1a1917; --surface: #221f1b; --ink: #ede9e0; --ink-muted: #a89f8f;
-    --ink-faint: #776f60; --rule: #3a362e; --rule-strong: #4a4536;
-    --gold: #d9a34b; --gold-ink: #e8b968; --gold-fill: #d9a34b;
-    --teal: #5cb0a4; --teal-bg: #1f2f2c; --amber-bg: #2c2418;
-    --hero-bg: #0f0e0c; --hero-ink: #ede9e0; --hero-muted: #8f8676;
-    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    --paper: #0b0a1d; --surface: #141231; --ink: #ecebf7; --ink-muted: #9a94c4;
+      --ink-faint: #6b659a; --rule: #2a2752; --rule-strong: #3c3873;
+      --accent: #39ddfc; --accent-ink: #7ef0ff; --accent-fill: #5b3bff;
+      --aqua: #5cd8e8; --aqua-bg: #10283c; --tint-bg: #231a4d;
+      --hero-bg: #05030f; --hero-ink: #ecebf7; --hero-muted: #9a94c4;
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -12px rgba(0,0,0,0.6);
   }
 
   * { box-sizing: border-box; }
   html { background: var(--paper); }
   body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.65; margin: 0; }
-  ::selection { background: var(--amber-bg); color: var(--ink); }
+  ::selection { background: var(--tint-bg); color: var(--ink); }
   img { max-width: 100%; }
 
-  a.cta-link { color: var(--gold-ink); }
+  a.cta-link { color: var(--accent-ink); }
+
+  .eyebrow-mark {
+    width: 22px; height: 22px; border-radius: 6px; vertical-align: -5px;
+    margin-right: 9px; box-shadow: 0 0 10px rgba(91,59,255,.45);
+  }
 
   /* ---- Hero ---- */
   .hero {
@@ -63,15 +72,15 @@
   .hero-inner { max-width: 900px; margin: 0 auto; }
   .eyebrow {
     font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12.5px; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--gold); margin: 0 0 20px; display: flex; align-items: center; gap: 10px;
+    text-transform: uppercase; color: var(--accent); margin: 0 0 20px; display: flex; align-items: center; gap: 10px;
   }
-  .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--gold); display: inline-block; }
+  .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--accent); display: inline-block; }
   .hero h1 {
     font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900;
     font-size: clamp(42px, 7vw, 82px); text-transform: uppercase; line-height: 0.94;
     margin: 0 0 26px; text-wrap: balance; letter-spacing: 0.005em;
   }
-  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero h1 em { font-style: normal; color: var(--accent); }
   .hero .lede {
     font-size: clamp(19px, 2.2vw, 23px); color: var(--hero-muted); max-width: 62ch; margin: 0 0 40px;
   }
@@ -79,15 +88,15 @@
   .btn-primary {
     font-family: 'IBM Plex Mono', monospace; font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em;
     text-transform: uppercase; text-decoration: none; padding: 15px 26px; border-radius: 6px;
-    background: var(--gold); color: var(--hero-bg); display: inline-block;
+    background: var(--accent); color: var(--hero-bg); display: inline-block;
   }
-  .btn-primary:hover { background: #e8b968; }
+  .btn-primary:hover { background: var(--accent-fill); color: #fff; }
   .btn-secondary {
     font-family: 'IBM Plex Mono', monospace; font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em;
     text-transform: uppercase; text-decoration: none; padding: 15px 26px; border-radius: 6px;
-    border: 1px solid #4a4536; color: var(--hero-ink); display: inline-block;
+    border: 1px solid rgba(236,235,247,.28); color: var(--hero-ink); display: inline-block;
   }
-  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
   /* ---- Proof shot ---- */
   .proof {
@@ -108,7 +117,7 @@
 
   .section-eyebrow {
     font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--gold-ink); margin: 0 0 10px;
+    text-transform: uppercase; color: var(--accent-ink); margin: 0 0 10px;
   }
   h2 {
     font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: clamp(28px, 4vw, 38px);
@@ -128,7 +137,7 @@
     .step:last-child { border-radius: 0 0 8px 8px; }
   }
   .step-num {
-    font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 32px; color: var(--gold);
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 32px; color: var(--accent);
     margin-bottom: 10px;
   }
   .step h3 {
@@ -141,13 +150,13 @@
   .ledger { border: 1px solid var(--rule-strong); border-radius: 8px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow); margin-top: 30px; }
   .ledger-row { display: grid; grid-template-columns: 28px 1fr; gap: 16px; padding: 18px 22px; border-bottom: 1px solid var(--rule); align-items: start; }
   .ledger-row:last-child { border-bottom: none; }
-  .ledger-row .check { color: var(--teal); font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 16px; }
+  .ledger-row .check { color: var(--aqua); font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 16px; }
   .ledger-row .label { font-weight: 600; }
   .ledger-row .desc { color: var(--ink-muted); font-size: 15.5px; margin-top: 2px; }
 
   /* ---- Honesty block ---- */
   blockquote.honest {
-    margin: 0; padding: 22px 26px; border-left: 3px solid var(--gold); background: var(--amber-bg);
+    margin: 0; padding: 22px 26px; border-left: 3px solid var(--accent); background: var(--tint-bg);
     border-radius: 0 8px 8px 0; font-size: 16.5px; color: var(--ink); max-width: 62ch;
   }
 
@@ -161,7 +170,7 @@
     border: 1px solid #3a362e; border-radius: 8px; background: #221f1b;
   }
   .contact-card .k { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--hero-muted); }
-  .contact-card .v a { color: var(--gold); font-family: 'IBM Plex Mono', monospace; font-size: 16px; text-decoration: none; }
+  .contact-card .v a { color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 16px; text-decoration: none; }
   .contact-card .v a:hover { text-decoration: underline; }
 
   footer { max-width: 900px; margin: 0 auto; padding: 40px 24px 64px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-faint); border-top: 1px solid var(--rule); }
@@ -171,7 +180,7 @@
 
 <div class="hero">
   <div class="hero-inner">
-    <p class="eyebrow">Magic Media for Brands</p>
+    <p class="eyebrow"><img class="eyebrow-mark" src="/media/appicon.svg" alt="" width="22" height="22">Magic Media for Brands</p>
     <h1>Your Packaging Just<br>Learned To <em>Move</em>.</h1>
     <p class="lede">Attach video, audio, or a 3D model to anything you print — a package, a poster, a menu, a business card. Customers scan it with their camera in Magic Media, and it comes alive. No app of your own to build.</p>
     <div class="hero-ctas">
@@ -183,7 +192,11 @@
 
 <div class="proof">
   <div class="proof-frame">
-    <img src="https://raw.githubusercontent.com/meezy416/Magic-Media-native-iOS-iPadOS-AR-App/main/docs/AppStoreScreenshots/1-hero.png" alt="A video playing in augmented reality on top of a scanned dollar bill in the Magic Media app">
+    <picture>
+      <source srcset="/media/proof-scan.webp" type="image/webp">
+      <img src="/media/proof-scan.jpg" width="1206" height="2622" loading="lazy" decoding="async"
+           alt="A video playing in augmented reality on top of a scanned dollar bill in the Magic Media app">
+    </picture>
   </div>
   <p class="proof-caption">A real scan in the Magic Media app — the video below is anchored live to the printed image above it.</p>
 </div>
@@ -248,7 +261,7 @@
 
 <div class="cta-band">
   <div class="cta-inner">
-    <p class="section-eyebrow" style="color:var(--gold)">Get In Touch</p>
+    <p class="section-eyebrow" style="color:var(--accent)">Get In Touch</p>
     <h2>Let's Put Your Print to Work</h2>
     <p>Tell us what you're printing and what you want it to do. We'll tell you honestly whether Magic Media is a fit.</p>
     <div class="contact-card">
@@ -258,7 +271,7 @@
   </div>
 </div>
 
-<footer>Magic Media for Brands — Break Thruu Ent. See also our <a href="https://claude.ai/artifact/V8hp3r5icarPowzXKGTHPy" style="color:var(--gold-ink)">Privacy Policy</a> and <a href="https://claude.ai/artifact/1gs6gn9xuNdWBgUR7Ym3v6" style="color:var(--gold-ink)">Support</a> pages.</footer>
+<footer>Magic Media for Brands — Break Thruu Ent. See also our <a href="https://claude.ai/artifact/V8hp3r5icarPowzXKGTHPy" style="color:var(--accent-ink)">Privacy Policy</a> and <a href="https://claude.ai/artifact/1gs6gn9xuNdWBgUR7Ym3v6" style="color:var(--accent-ink)">Support</a> pages.</footer>
 
 </body>
 </html>
