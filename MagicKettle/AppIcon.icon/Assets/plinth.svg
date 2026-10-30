@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024"><defs>
+<linearGradient id="face" x1="112" y1="730" x2="917" y2="730" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#00E5FF"/><stop offset="0.45" stop-color="#5B3BFF"/><stop offset="1" stop-color="#FF2BF5"/></linearGradient>
+<linearGradient id="side" x1="112" y1="770" x2="917" y2="770" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#0083B8"/><stop offset="0.45" stop-color="#2E1DBE"/><stop offset="1" stop-color="#B2129F"/></linearGradient>
+<radialGradient id="pool" cx="514" cy="716" r="300" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#FFFFFF" stop-opacity="0.96"/><stop offset="0.20" stop-color="#EAFBFF" stop-opacity="0.56"/>
+<stop offset="0.54" stop-color="#8FD6FF" stop-opacity="0.15"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient></defs><path d="M 112 730 L 514 826 L 514 876 L 112 780 Z" fill="url(#side)"/><path d="M 917 730 L 514 826 L 514 876 L 917 780 Z" fill="url(#side)"/><path d="M 112 730 L 514 634 L 917 730 L 514 826 Z" fill="url(#face)"/><path d="M 112 730 L 514 634 L 917 730 L 514 826 Z" fill="url(#pool)"/></svg>
