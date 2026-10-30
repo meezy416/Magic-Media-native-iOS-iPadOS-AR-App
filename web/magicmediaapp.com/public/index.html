@@ -9,69 +9,82 @@
   @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
   :root {
-    --paper: #f4f3ef;
-    --surface: #fbfaf7;
-    --ink: #201f1c;
-    --ink-muted: #5b584f;
-    --ink-faint: #8a8577;
-    --rule: #d9d5c9;
-    --rule-strong: #c7c2b3;
-    --gold: #a96a1f;
-    --gold-ink: #7c4d16;
-    --gold-fill: #c1852e;
-    --teal: #2f6e68;
-    --teal-bg: #e4efed;
-    --amber-bg: #f4e6d3;
-    --hero-bg: #1a1917;
-    --hero-ink: #ede9e0;
-    --hero-muted: #a89f8f;
-    --shadow: 0 1px 2px rgba(32,31,28,0.06), 0 8px 24px -12px rgba(32,31,28,0.12);
+    --paper: #f3f4fa;
+    --surface: #fafbff;
+    --ink: #14151f;
+    --ink-muted: #51566a;
+    --ink-faint: #848aa0;
+    --rule: #d7dae8;
+    --rule-strong: #c1c6da;
+    --accent: #6d28d9;
+    --accent-ink: #5b21b6;
+    --accent-fill: #7c3aed;
+    --cyan: #0e7490;
+    --cyan-bg: #e0f2fe;
+    --accent-soft: #ede9fe;
+    --hero-bg: #0b0d1a;
+    --hero-ink: #ecEEfb;
+    --hero-muted: #9aa0c4;
+    --glow-cyan: #22d3ee;
+    --glow-magenta: #e879f9;
+    --shadow: 0 1px 2px rgba(20,21,31,0.06), 0 8px 24px -12px rgba(20,21,31,0.14);
   }
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper: #1a1917; --surface: #221f1b; --ink: #ede9e0; --ink-muted: #a89f8f;
-      --ink-faint: #776f60; --rule: #3a362e; --rule-strong: #4a4536;
-      --gold: #d9a34b; --gold-ink: #e8b968; --gold-fill: #d9a34b;
-      --teal: #5cb0a4; --teal-bg: #1f2f2c; --amber-bg: #2c2418;
-      --hero-bg: #0f0e0c; --hero-ink: #ede9e0; --hero-muted: #8f8676;
-      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+      --paper: #0b0d1a; --surface: #14172a; --ink: #ecEEfb; --ink-muted: #9aa0c4;
+      --ink-faint: #6b7199; --rule: #262a44; --rule-strong: #343a5c;
+      --accent: #a78bfa; --accent-ink: #c4b5fd; --accent-fill: #a78bfa;
+      --cyan: #22d3ee; --cyan-bg: #0e2a3a; --accent-soft: #1e1b38;
+      --hero-bg: #07080f; --hero-ink: #ecEEfb; --hero-muted: #8b91b8;
+      --glow-cyan: #22d3ee; --glow-magenta: #e879f9;
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -12px rgba(0,0,0,0.6);
     }
   }
   :root[data-theme="dark"] {
-    --paper: #1a1917; --surface: #221f1b; --ink: #ede9e0; --ink-muted: #a89f8f;
-    --ink-faint: #776f60; --rule: #3a362e; --rule-strong: #4a4536;
-    --gold: #d9a34b; --gold-ink: #e8b968; --gold-fill: #d9a34b;
-    --teal: #5cb0a4; --teal-bg: #1f2f2c; --amber-bg: #2c2418;
-    --hero-bg: #0f0e0c; --hero-ink: #ede9e0; --hero-muted: #8f8676;
-    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    --paper: #0b0d1a; --surface: #14172a; --ink: #ecEEfb; --ink-muted: #9aa0c4;
+    --ink-faint: #6b7199; --rule: #262a44; --rule-strong: #343a5c;
+    --accent: #a78bfa; --accent-ink: #c4b5fd; --accent-fill: #a78bfa;
+    --cyan: #22d3ee; --cyan-bg: #0e2a3a; --accent-soft: #1e1b38;
+    --hero-bg: #07080f; --hero-ink: #ecEEfb; --hero-muted: #8b91b8;
+    --glow-cyan: #22d3ee; --glow-magenta: #e879f9;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -12px rgba(0,0,0,0.6);
   }
 
   * { box-sizing: border-box; }
   html { background: var(--paper); }
   body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.65; margin: 0; }
-  ::selection { background: var(--amber-bg); color: var(--ink); }
+  ::selection { background: var(--accent-soft); color: var(--ink); }
   img { max-width: 100%; }
 
-  a.cta-link { color: var(--gold-ink); }
+  a.cta-link { color: var(--accent-ink); }
 
   /* ---- Hero ---- */
   .hero {
-    background: var(--hero-bg); color: var(--hero-ink);
+    background:
+      radial-gradient(90% 120% at 18% 110%, rgba(34,211,238,0.16) 0%, rgba(34,211,238,0) 55%),
+      radial-gradient(70% 100% at 88% -10%, rgba(232,121,249,0.14) 0%, rgba(232,121,249,0) 60%),
+      var(--hero-bg);
+    color: var(--hero-ink);
     padding: 88px 24px 76px;
   }
   .hero-inner { max-width: 900px; margin: 0 auto; }
   .eyebrow {
     font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12.5px; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--gold); margin: 0 0 20px; display: flex; align-items: center; gap: 10px;
+    text-transform: uppercase; color: var(--glow-cyan); margin: 0 0 20px; display: flex; align-items: center; gap: 10px;
   }
-  .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--gold); display: inline-block; }
+  .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--glow-cyan); display: inline-block; }
   .hero h1 {
     font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900;
     font-size: clamp(42px, 7vw, 82px); text-transform: uppercase; line-height: 0.94;
     margin: 0 0 26px; text-wrap: balance; letter-spacing: 0.005em;
   }
-  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(100deg, var(--glow-cyan) 0%, #a78bfa 48%, var(--glow-magenta) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: var(--glow-cyan);
+  }
   .hero .lede {
     font-size: clamp(19px, 2.2vw, 23px); color: var(--hero-muted); max-width: 62ch; margin: 0 0 40px;
   }
@@ -79,15 +92,16 @@
   .btn-primary {
     font-family: 'IBM Plex Mono', monospace; font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em;
     text-transform: uppercase; text-decoration: none; padding: 15px 26px; border-radius: 6px;
-    background: var(--gold); color: var(--hero-bg); display: inline-block;
+    background: linear-gradient(100deg, var(--glow-cyan) 0%, #a78bfa 100%);
+    color: #07080f; display: inline-block;
   }
-  .btn-primary:hover { background: #e8b968; }
+  .btn-primary:hover { background: linear-gradient(100deg, #67e8f9 0%, #c4b5fd 100%); }
   .btn-secondary {
     font-family: 'IBM Plex Mono', monospace; font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em;
     text-transform: uppercase; text-decoration: none; padding: 15px 26px; border-radius: 6px;
-    border: 1px solid #4a4536; color: var(--hero-ink); display: inline-block;
+    border: 1px solid #343a5c; color: var(--hero-ink); display: inline-block;
   }
-  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-secondary:hover { border-color: var(--glow-cyan); color: var(--glow-cyan); }
 
   /* ---- Proof shot ---- */
   .proof {
@@ -108,7 +122,7 @@
 
   .section-eyebrow {
     font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--gold-ink); margin: 0 0 10px;
+    text-transform: uppercase; color: var(--accent-ink); margin: 0 0 10px;
   }
   h2 {
     font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: clamp(28px, 4vw, 38px);
@@ -128,7 +142,7 @@
     .step:last-child { border-radius: 0 0 8px 8px; }
   }
   .step-num {
-    font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 32px; color: var(--gold);
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 32px; color: var(--accent);
     margin-bottom: 10px;
   }
   .step h3 {
@@ -141,14 +155,26 @@
   .ledger { border: 1px solid var(--rule-strong); border-radius: 8px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow); margin-top: 30px; }
   .ledger-row { display: grid; grid-template-columns: 28px 1fr; gap: 16px; padding: 18px 22px; border-bottom: 1px solid var(--rule); align-items: start; }
   .ledger-row:last-child { border-bottom: none; }
-  .ledger-row .check { color: var(--teal); font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 16px; }
+  .ledger-row .check { color: var(--cyan); font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 16px; }
   .ledger-row .label { font-weight: 600; }
   .ledger-row .desc { color: var(--ink-muted); font-size: 15.5px; margin-top: 2px; }
 
   /* ---- Honesty block ---- */
   blockquote.honest {
-    margin: 0; padding: 22px 26px; border-left: 3px solid var(--gold); background: var(--amber-bg);
+    margin: 0; padding: 22px 26px; border-left: 3px solid var(--accent); background: var(--accent-soft);
     border-radius: 0 8px 8px 0; font-size: 16.5px; color: var(--ink); max-width: 62ch;
+  }
+
+  /* ---- Explainer video ---- */
+  .video-frame {
+    position: relative; width: 100%; aspect-ratio: 16 / 9; margin-top: 30px;
+    border-radius: 12px; overflow: hidden; border: 1px solid var(--rule-strong);
+    background: #07080f; box-shadow: var(--shadow);
+  }
+  .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+  .video-caption {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12.5px;
+    color: var(--ink-faint); margin: 14px 0 0;
   }
 
   /* ---- Who it's for ---- */
@@ -162,7 +188,7 @@
   .fits.pairs { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
   .fit {
     padding: 20px 22px; background: var(--surface); border: 1px solid var(--rule-strong);
-    border-top: 3px solid var(--gold); border-radius: 8px; box-shadow: var(--shadow);
+    border-top: 3px solid var(--accent); border-radius: 8px; box-shadow: var(--shadow);
   }
   .fit.secondary { border-top-color: var(--rule-strong); }
   .fit h3 {
@@ -172,10 +198,10 @@
   .fit p { font-size: 15px; color: var(--ink-muted); margin: 0; }
   .fit .who {
     font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: 0.05em;
-    text-transform: uppercase; color: var(--teal); margin: 12px 0 0; line-height: 1.5;
+    text-transform: uppercase; color: var(--cyan); margin: 12px 0 0; line-height: 1.5;
   }
   .fit-note {
-    margin: 34px 0 0; padding: 20px 24px; background: var(--teal-bg); border-left: 3px solid var(--teal);
+    margin: 34px 0 0; padding: 20px 24px; background: var(--cyan-bg); border-left: 3px solid var(--cyan);
     border-radius: 0 8px 8px 0; font-size: 16.5px; color: var(--ink); max-width: 62ch;
   }
   .fit-note strong { font-weight: 700; }
@@ -187,10 +213,10 @@
   .cta-band p { color: var(--hero-muted); font-size: 17px; max-width: 52ch; margin: 0 auto 34px; }
   .contact-card {
     display: inline-flex; flex-direction: column; gap: 4px; text-align: left; padding: 22px 28px;
-    border: 1px solid #3a362e; border-radius: 8px; background: #221f1b;
+    border: 1px solid #262a44; border-radius: 8px; background: #14172a;
   }
   .contact-card .k { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--hero-muted); }
-  .contact-card .v a { color: var(--gold); font-family: 'IBM Plex Mono', monospace; font-size: 16px; text-decoration: none; }
+  .contact-card .v a { color: var(--glow-cyan); font-family: 'IBM Plex Mono', monospace; font-size: 16px; text-decoration: none; }
   .contact-card .v a:hover { text-decoration: underline; }
 
   footer { max-width: 900px; margin: 0 auto; padding: 40px 24px 64px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-faint); border-top: 1px solid var(--rule); }
@@ -241,6 +267,21 @@
         <p>Anyone with Magic Media points their camera at your material and your content plays, anchored right on top of it.</p>
       </div>
     </div>
+  </section>
+
+  <section id="see-it">
+    <p class="section-eyebrow">See It Work</p>
+    <h2>Ninety Seconds, No Pitch</h2>
+    <p class="body-text">Rather than take our word for how this behaves, watch it run. This is the app recognizing printed material and anchoring content on top of it, recorded live.</p>
+    <div class="video-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/hn3tAm9B468?rel=0"
+        title="Magic Media — augmented reality on printed media"
+        loading="lazy"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <p class="video-caption">Magic Media running on an iPhone — no edits to the tracking.</p>
   </section>
 
   <section id="who-its-for">
@@ -341,7 +382,7 @@
 
 <div class="cta-band">
   <div class="cta-inner">
-    <p class="section-eyebrow" style="color:var(--gold)">Get In Touch</p>
+    <p class="section-eyebrow" style="color:var(--glow-cyan)">Get In Touch</p>
     <h2>Let's Put Your Print to Work</h2>
     <p>Tell us what you're printing and what you want it to do. We'll tell you honestly whether Magic Media is a fit.</p>
     <div class="contact-card">
@@ -351,7 +392,7 @@
   </div>
 </div>
 
-<footer>Magic Media for Brands — Break Thruu Ent. See also our <a href="https://claude.ai/artifact/V8hp3r5icarPowzXKGTHPy" style="color:var(--gold-ink)">Privacy Policy</a> and <a href="https://claude.ai/artifact/1gs6gn9xuNdWBgUR7Ym3v6" style="color:var(--gold-ink)">Support</a> pages.</footer>
+<footer>Magic Media for Brands — Break Thruu Ent. See also our <a href="https://claude.ai/artifact/V8hp3r5icarPowzXKGTHPy" style="color:var(--accent-ink)">Privacy Policy</a> and <a href="https://claude.ai/artifact/1gs6gn9xuNdWBgUR7Ym3v6" style="color:var(--accent-ink)">Support</a> pages.</footer>
 
 </body>
 </html>
