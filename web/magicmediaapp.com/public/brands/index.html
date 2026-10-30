@@ -160,6 +160,47 @@
     border-radius: 0 8px 8px 0; font-size: 16.5px; color: var(--ink); max-width: 62ch;
   }
 
+/* ---- Explainer video ---- */
+  .video-frame {
+    position: relative; width: 100%; aspect-ratio: 16 / 9; margin-top: 30px;
+    border-radius: 12px; overflow: hidden; border: 1px solid var(--rule-strong);
+    background: #07080f; box-shadow: var(--shadow);
+  }
+  .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+  .video-caption {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12.5px;
+    color: var(--ink-faint); margin: 14px 0 0;
+  }
+
+/* ---- Who it's for ---- */
+  .group-label {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-faint); margin: 34px 0 0;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .group-label::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+  .fits { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 14px; margin-top: 18px; }
+  .fits.pairs { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .fit {
+    padding: 20px 22px; background: var(--surface); border: 1px solid var(--rule-strong);
+    border-top: 3px solid var(--accent); border-radius: 8px; box-shadow: var(--shadow);
+  }
+  .fit.secondary { border-top-color: var(--rule-strong); }
+  .fit h3 {
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 18px;
+    text-transform: uppercase; letter-spacing: 0.01em; margin: 0 0 8px;
+  }
+  .fit p { font-size: 15px; color: var(--ink-muted); margin: 0; }
+  .fit .who {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--aqua); margin: 12px 0 0; line-height: 1.5;
+  }
+  .fit-note {
+    margin: 34px 0 0; padding: 20px 24px; background: var(--aqua-bg); border-left: 3px solid var(--aqua);
+    border-radius: 0 8px 8px 0; font-size: 16.5px; color: var(--ink); max-width: 62ch;
+  }
+  .fit-note strong { font-weight: 700; }
+
   /* ---- CTA ---- */
   .cta-band { background: var(--hero-bg); color: var(--hero-ink); padding: 76px 24px; margin: 0; }
   .cta-inner { max-width: 640px; margin: 0 auto; text-align: center; }
@@ -224,6 +265,84 @@
         <p>Anyone with Magic Media points their camera at your material and your content plays, anchored right on top of it.</p>
       </div>
     </div>
+  </section>
+
+  <section id="see-it">
+    <p class="section-eyebrow">See It Work</p>
+    <h2>Ninety Seconds, No Pitch</h2>
+    <p class="body-text">Rather than take our word for how this behaves, watch it run. This is the app recognizing printed material and anchoring content on top of it, recorded live.</p>
+    <div class="video-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/hn3tAm9B468?rel=0"
+        title="Magic Media — augmented reality on printed media"
+        loading="lazy"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <p class="video-caption">Magic Media running on an iPhone — no edits to the tracking.</p>
+  </section>
+
+  <section id="who-its-for">
+    <p class="section-eyebrow">Who It's For</p>
+    <h2>Where Printed Matter Still Does the Work</h2>
+    <p class="body-text">Magic Media pays off wherever something printed is already in someone's hands and there's more to say than the page has room for. These are the places we've seen that happen.</p>
+
+    <p class="group-label">Strongest fit</p>
+    <div class="fits pairs">
+      <div class="fit">
+        <h3>Exhibits &amp; Visitor Attractions</h3>
+        <p>A wall label has room for a paragraph. Scanning it can play the excavation footage, the artist at work, or the animal in motion.</p>
+        <p class="who">Museums · Science centers · Zoos &amp; aquariums · Galleries · Historic sites · Botanical gardens</p>
+      </div>
+      <div class="fit">
+        <h3>Manuals &amp; Assembly Guides</h3>
+        <p>Point the camera at step four and watch step four. Fewer support calls, fewer returns, fewer diagrams nobody can decipher.</p>
+        <p class="who">Flat-pack furniture · Appliances · Bikes · Tools · Toys &amp; kits · Instruments · Devices</p>
+      </div>
+      <div class="fit">
+        <h3>Educational Print</h3>
+        <p>Workbooks, lab manuals, and field guides where the still image is doing a job that really needs motion.</p>
+        <p class="who">Curriculum publishers · STEM &amp; robotics kits · Homeschool &amp; Montessori · Lab manuals</p>
+      </div>
+      <div class="fit">
+        <h3>Magazines, Programs &amp; Guides</h3>
+        <p>A print ad or feature that plays a video — and finally reports a real scan count back to whoever paid for the page.</p>
+        <p class="who">Alumni &amp; trade magazines · Visitor guides · Playbills · Event &amp; sports programs</p>
+      </div>
+    </div>
+
+    <p class="group-label">Also a strong fit</p>
+    <div class="fits">
+      <div class="fit secondary">
+        <h3>Tourism &amp; Hospitality</h3>
+        <p>Visitor guides, in-room compendiums, and walking-tour maps that can introduce the place in its own voice.</p>
+        <p class="who">Tourism boards · CVBs · Hotels · Tour operators</p>
+      </div>
+      <div class="fit secondary">
+        <h3>Labels &amp; Bottles</h3>
+        <p>The label becomes the screen — origin story, tasting notes, or the maker talking, right on the bottle.</p>
+        <p class="who">Wine · Spirits · Craft beverage · Specialty food</p>
+      </div>
+      <div class="fit secondary">
+        <h3>Collectibles &amp; Cards</h3>
+        <p>A flat printed card is close to an ideal target. The card stays the card, and also plays the highlight reel.</p>
+        <p class="who">Trading cards · Currency &amp; coins · Memorabilia · Limited-run prints</p>
+      </div>
+      <div class="fit secondary">
+        <h3>Property &amp; Vehicles</h3>
+        <p>The window sheet or brochure opens into a full walkthrough before anyone has to book a viewing.</p>
+        <p class="who">Real estate brokerages · Dealerships · Developers</p>
+      </div>
+      <div class="fit secondary">
+        <h3>Mail That Has to Land</h3>
+        <p>A printed appeal or announcement that can deliver the video version — and tell you how many people watched it.</p>
+        <p class="who">Nonprofit &amp; donor mail · Advocacy campaigns · Membership drives</p>
+      </div>
+    </div>
+
+    <p class="fit-note">
+      <strong>One honest filter, whatever your industry:</strong> this works best when the person holding your print is stopped, curious, and actually wants what's on the other side of the scan — a visitor at an exhibit, someone halfway through assembling a thing, a reader with the magazine open. It works least well as an interruption. If you can tell us about that moment, we can tell you quickly whether it's a fit.
+    </p>
   </section>
 
   <section>
