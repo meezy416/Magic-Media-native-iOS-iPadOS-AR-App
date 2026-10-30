@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magic Media for Brands</title>
+<meta name="description" content="Attach video, audio, or a 3D model to your packaging, print, and marketing materials — the Magic Media brand partnership offering.">
+<meta name="theme-color" content="#05030f">
+<link rel="icon" type="image/svg+xml" href="/media/appicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/appicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/appicon-180.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --paper: #f3f4fb;
+    --surface: #ffffff;
+    --ink: #15142b;
+    --ink-muted: #56527d;
+    --ink-faint: #8b87ad;
+    --rule: #dcdcee;
+    --rule-strong: #c5c4e0;
+    --accent: #4a2fd6;
+    --accent-ink: #3a22ad;
+    --accent-fill: #5b3bff;
+    --aqua: #0f7c9b;
+    --aqua-bg: #e2f5fb;
+    --tint-bg: #ece4ff;
+    --hero-bg: #05030f;
+    --hero-ink: #ecebf7;
+    --hero-muted: #9a94c4;
+    --shadow: 0 1px 2px rgba(21,20,43,0.06), 0 8px 24px -12px rgba(21,20,43,0.16);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0b0a1d; --surface: #141231; --ink: #ecebf7; --ink-muted: #9a94c4;
+      --ink-faint: #6b659a; --rule: #2a2752; --rule-strong: #3c3873;
+      --accent: #39ddfc; --accent-ink: #7ef0ff; --accent-fill: #5b3bff;
+      --aqua: #5cd8e8; --aqua-bg: #10283c; --tint-bg: #231a4d;
+      --hero-bg: #05030f; --hero-ink: #ecebf7; --hero-muted: #9a94c4;
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -12px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0b0a1d; --surface: #141231; --ink: #ecebf7; --ink-muted: #9a94c4;
+      --ink-faint: #6b659a; --rule: #2a2752; --rule-strong: #3c3873;
+      --accent: #39ddfc; --accent-ink: #7ef0ff; --accent-fill: #5b3bff;
+      --aqua: #5cd8e8; --aqua-bg: #10283c; --tint-bg: #231a4d;
+      --hero-bg: #05030f; --hero-ink: #ecebf7; --hero-muted: #9a94c4;
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -12px rgba(0,0,0,0.6);
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--paper); }
+  body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.65; margin: 0; }
+  ::selection { background: var(--tint-bg); color: var(--ink); }
+  img { max-width: 100%; }
+
+  a.cta-link { color: var(--accent-ink); }
+
+  .eyebrow-mark {
+    width: 22px; height: 22px; border-radius: 6px; vertical-align: -5px;
+    margin-right: 9px; box-shadow: 0 0 10px rgba(91,59,255,.45);
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    background: var(--hero-bg); color: var(--hero-ink);
+    padding: 88px 24px 76px;
+  }
+  .hero-inner { max-width: 900px; margin: 0 auto; }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12.5px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent); margin: 0 0 20px; display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--accent); display: inline-block; }
+  .hero h1 {
+    font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900;
+    font-size: clamp(42px, 7vw, 82px); text-transform: uppercase; line-height: 0.94;
+    margin: 0 0 26px; text-wrap: balance; letter-spacing: 0.005em;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero .lede {
+    font-size: clamp(19px, 2.2vw, 23px); color: var(--hero-muted); max-width: 62ch; margin: 0 0 40px;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    font-family: 'IBM Plex Mono', monospace; font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase; text-decoration: none; padding: 15px 26px; border-radius: 6px;
+    background: var(--accent); color: var(--hero-bg); display: inline-block;
+  }
+  .btn-primary:hover { background: var(--accent-fill); color: #fff; }
+  .btn-secondary {
+    font-family: 'IBM Plex Mono', monospace; font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase; text-decoration: none; padding: 15px 26px; border-radius: 6px;
+    border: 1px solid rgba(236,235,247,.28); color: var(--hero-ink); display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ---- Proof shot ---- */
+  .proof {
+    max-width: 900px; margin: -48px auto 0; padding: 0 24px; position: relative; z-index: 2;
+  }
+  .proof-frame {
+    border-radius: 14px; overflow: hidden; box-shadow: 0 24px 60px -20px rgba(0,0,0,0.35); border: 1px solid var(--rule-strong);
+    background: var(--surface);
+  }
+  .proof-frame img { display: block; width: 100%; height: auto; }
+  .proof-caption {
+    text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--ink-faint);
+    margin-top: 14px;
+  }
+
+  main { max-width: 900px; margin: 0 auto; padding: 90px 24px 0; }
+  section { margin-bottom: 84px; }
+
+  .section-eyebrow {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent-ink); margin: 0 0 10px;
+  }
+  h2 {
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: clamp(28px, 4vw, 38px);
+    text-transform: uppercase; margin: 0 0 20px; line-height: 1.02; text-wrap: balance;
+  }
+  p.body-text { max-width: 62ch; color: var(--ink-muted); font-size: 18px; }
+
+  /* ---- How it works ---- */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 4px; margin-top: 36px; }
+  .step {
+    padding: 26px 22px; background: var(--surface); border: 1px solid var(--rule-strong); box-shadow: var(--shadow);
+  }
+  .step:first-child { border-radius: 8px 0 0 8px; }
+  .step:last-child { border-radius: 0 8px 8px 0; }
+  @media (max-width: 600px) {
+    .step:first-child { border-radius: 8px 8px 0 0; }
+    .step:last-child { border-radius: 0 0 8px 8px; }
+  }
+  .step-num {
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 32px; color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .step h3 {
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 17px; text-transform: uppercase;
+    letter-spacing: 0.01em; margin: 0 0 8px;
+  }
+  .step p { font-size: 15px; color: var(--ink-muted); margin: 0; }
+
+  /* ---- Feature ledger ---- */
+  .ledger { border: 1px solid var(--rule-strong); border-radius: 8px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow); margin-top: 30px; }
+  .ledger-row { display: grid; grid-template-columns: 28px 1fr; gap: 16px; padding: 18px 22px; border-bottom: 1px solid var(--rule); align-items: start; }
+  .ledger-row:last-child { border-bottom: none; }
+  .ledger-row .check { color: var(--aqua); font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 16px; }
+  .ledger-row .label { font-weight: 600; }
+  .ledger-row .desc { color: var(--ink-muted); font-size: 15.5px; margin-top: 2px; }
+
+  /* ---- Honesty block ---- */
+  blockquote.honest {
+    margin: 0; padding: 22px 26px; border-left: 3px solid var(--accent); background: var(--tint-bg);
+    border-radius: 0 8px 8px 0; font-size: 16.5px; color: var(--ink); max-width: 62ch;
+  }
+
+/* ---- Explainer video ---- */
+  .video-frame {
+    position: relative; width: 100%; aspect-ratio: 16 / 9; margin-top: 30px;
+    border-radius: 12px; overflow: hidden; border: 1px solid var(--rule-strong);
+    background: #07080f; box-shadow: var(--shadow);
+  }
+  .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+  .video-caption {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12.5px;
+    color: var(--ink-faint); margin: 14px 0 0;
+  }
+
+/* ---- Who it's for ---- */
+  .group-label {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-faint); margin: 34px 0 0;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .group-label::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+  .fits { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 14px; margin-top: 18px; }
+  .fits.pairs { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .fit {
+    padding: 20px 22px; background: var(--surface); border: 1px solid var(--rule-strong);
+    border-top: 3px solid var(--accent); border-radius: 8px; box-shadow: var(--shadow);
+  }
+  .fit.secondary { border-top-color: var(--rule-strong); }
+  .fit h3 {
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 18px;
+    text-transform: uppercase; letter-spacing: 0.01em; margin: 0 0 8px;
+  }
+  .fit p { font-size: 15px; color: var(--ink-muted); margin: 0; }
+  .fit .who {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--aqua); margin: 12px 0 0; line-height: 1.5;
+  }
+  .fit-note {
+    margin: 34px 0 0; padding: 20px 24px; background: var(--aqua-bg); border-left: 3px solid var(--aqua);
+    border-radius: 0 8px 8px 0; font-size: 16.5px; color: var(--ink); max-width: 62ch;
+  }
+  .fit-note strong { font-weight: 700; }
+
+  /* ---- CTA ---- */
+  .cta-band { background: var(--hero-bg); color: var(--hero-ink); padding: 76px 24px; margin: 0; }
+  .cta-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+  .cta-band h2 { color: var(--hero-ink); }
+  .cta-band p { color: var(--hero-muted); font-size: 17px; max-width: 52ch; margin: 0 auto 34px; }
+  .contact-card {
+    display: inline-flex; flex-direction: column; gap: 4px; text-align: left; padding: 22px 28px;
+    border: 1px solid #3a362e; border-radius: 8px; background: #221f1b;
+  }
+  .contact-card .k { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--hero-muted); }
+  .contact-card .v a { color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 16px; text-decoration: none; }
+  .contact-card .v a:hover { text-decoration: underline; }
+
+  footer { max-width: 900px; margin: 0 auto; padding: 40px 24px 64px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-faint); border-top: 1px solid var(--rule); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow"><img class="eyebrow-mark" src="/media/appicon.svg" alt="" width="22" height="22">Magic Media for Brands</p>
+    <h1>Your Packaging Just<br>Learned To <em>Move</em>.</h1>
+    <p class="lede">Attach video, audio, or a 3D model to anything you print — a package, a poster, a menu, a business card. Customers scan it with their camera in Magic Media, and it comes alive. No app of your own to build.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="mailto:hello@magicmediaapp.com?subject=Magic%20Media%20for%20Brands">Start a Conversation</a>
+      <a class="btn-secondary" href="#how-it-works">See How It Works</a>
+    </div>
+  </div>
+</div>
+
+<div class="proof">
+  <div class="proof-frame">
+    <picture>
+      <source srcset="/media/proof-scan.webp" type="image/webp">
+      <img src="/media/proof-scan.jpg" width="1206" height="2622" loading="lazy" decoding="async"
+           alt="A video playing in augmented reality on top of a scanned dollar bill in the Magic Media app">
+    </picture>
+  </div>
+  <p class="proof-caption">A real scan in the Magic Media app — the video below is anchored live to the printed image above it.</p>
+</div>
+
+<main>
+
+  <section id="how-it-works">
+    <p class="section-eyebrow">How It Works</p>
+    <h2>From Print to Playable in Three Steps</h2>
+    <p class="body-text">You bring the print material and the content. We handle the recognition, the hosting, and the review.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Send Us Your Material</h3>
+        <p>A photo of your packaging, poster, label, or print piece — whatever your customers will actually be looking at.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>We Build Your Trigger</h3>
+        <p>Your target image gets paired with your video, audio, or 3D content and reviewed before it goes live.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Customers Scan &amp; Watch</h3>
+        <p>Anyone with Magic Media points their camera at your material and your content plays, anchored right on top of it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="see-it">
+    <p class="section-eyebrow">See It Work</p>
+    <h2>Ninety Seconds, No Pitch</h2>
+    <p class="body-text">Rather than take our word for how this behaves, watch it run. This is the app recognizing printed material and anchoring content on top of it, recorded live.</p>
+    <div class="video-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/hn3tAm9B468?rel=0"
+        title="Magic Media — augmented reality on printed media"
+        loading="lazy"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <p class="video-caption">Magic Media running on an iPhone — no edits to the tracking.</p>
+  </section>
+
+  <section id="who-its-for">
+    <p class="section-eyebrow">Who It's For</p>
+    <h2>Where Printed Matter Still Does the Work</h2>
+    <p class="body-text">Magic Media pays off wherever something printed is already in someone's hands and there's more to say than the page has room for. These are the places we've seen that happen.</p>
+
+    <p class="group-label">Strongest fit</p>
+    <div class="fits pairs">
+      <div class="fit">
+        <h3>Exhibits &amp; Visitor Attractions</h3>
+        <p>A wall label has room for a paragraph. Scanning it can play the excavation footage, the artist at work, or the animal in motion.</p>
+        <p class="who">Museums · Science centers · Zoos &amp; aquariums · Galleries · Historic sites · Botanical gardens</p>
+      </div>
+      <div class="fit">
+        <h3>Manuals &amp; Assembly Guides</h3>
+        <p>Point the camera at step four and watch step four. Fewer support calls, fewer returns, fewer diagrams nobody can decipher.</p>
+        <p class="who">Flat-pack furniture · Appliances · Bikes · Tools · Toys &amp; kits · Instruments · Devices</p>
+      </div>
+      <div class="fit">
+        <h3>Educational Print</h3>
+        <p>Workbooks, lab manuals, and field guides where the still image is doing a job that really needs motion.</p>
+        <p class="who">Curriculum publishers · STEM &amp; robotics kits · Homeschool &amp; Montessori · Lab manuals</p>
+      </div>
+      <div class="fit">
+        <h3>Magazines, Programs &amp; Guides</h3>
+        <p>A print ad or feature that plays a video — and finally reports a real scan count back to whoever paid for the page.</p>
+        <p class="who">Alumni &amp; trade magazines · Visitor guides · Playbills · Event &amp; sports programs</p>
+      </div>
+    </div>
+
+    <p class="group-label">Also a strong fit</p>
+    <div class="fits">
+      <div class="fit secondary">
+        <h3>Tourism &amp; Hospitality</h3>
+        <p>Visitor guides, in-room compendiums, and walking-tour maps that can introduce the place in its own voice.</p>
+        <p class="who">Tourism boards · CVBs · Hotels · Tour operators</p>
+      </div>
+      <div class="fit secondary">
+        <h3>Labels &amp; Bottles</h3>
+        <p>The label becomes the screen — origin story, tasting notes, or the maker talking, right on the bottle.</p>
+        <p class="who">Wine · Spirits · Craft beverage · Specialty food</p>
+      </div>
+      <div class="fit secondary">
+        <h3>Collectibles &amp; Cards</h3>
+        <p>A flat printed card is close to an ideal target. The card stays the card, and also plays the highlight reel.</p>
+        <p class="who">Trading cards · Currency &amp; coins · Memorabilia · Limited-run prints</p>
+      </div>
+      <div class="fit secondary">
+        <h3>Property &amp; Vehicles</h3>
+        <p>The window sheet or brochure opens into a full walkthrough before anyone has to book a viewing.</p>
+        <p class="who">Real estate brokerages · Dealerships · Developers</p>
+      </div>
+      <div class="fit secondary">
+        <h3>Mail That Has to Land</h3>
+        <p>A printed appeal or announcement that can deliver the video version — and tell you how many people watched it.</p>
+        <p class="who">Nonprofit &amp; donor mail · Advocacy campaigns · Membership drives</p>
+      </div>
+    </div>
+
+    <p class="fit-note">
+      <strong>One honest filter, whatever your industry:</strong> this works best when the person holding your print is stopped, curious, and actually wants what's on the other side of the scan — a visitor at an exhibit, someone halfway through assembling a thing, a reader with the magazine open. It works least well as an interruption. If you can tell us about that moment, we can tell you quickly whether it's a fit.
+    </p>
+  </section>
+
+  <section>
+    <p class="section-eyebrow">What's Included</p>
+    <h2>Built for Businesses That Print Things</h2>
+    <div class="ledger">
+      <div class="ledger-row">
+        <div class="check">✓</div>
+        <div><div class="label">A dedicated AR trigger tied to your material</div><div class="desc">Your image, your content — recognized instantly by anyone's camera in the app.</div></div>
+      </div>
+      <div class="ledger-row">
+        <div class="check">✓</div>
+        <div><div class="label">Reviewed before it goes live</div><div class="desc">Every trigger is checked before it's visible to app users — yours included.</div></div>
+      </div>
+      <div class="ledger-row">
+        <div class="check">✓</div>
+        <div><div class="label">A private analytics link</div><div class="desc">See how many times your trigger has been scanned, with a daily breakdown — no login required, just a link.</div></div>
+      </div>
+      <div class="ledger-row">
+        <div class="check">✓</div>
+        <div><div class="label">No app to build or maintain</div><div class="desc">Your customers already have Magic Media, or download it free — you're not shipping your own AR app.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-eyebrow">Straight Talk</p>
+    <h2>This Is Early, and We're Upfront About It</h2>
+    <blockquote class="honest">
+      Magic Media just launched. There's no case-study wall of brand logos here yet — because there isn't one to show honestly. What you're getting is direct access to the person building this, a real working product you can test yourself in the App Store today, and pricing that's a conversation, not a rate card. If that's not what you're looking for, no hard feelings.
+    </blockquote>
+  </section>
+
+</main>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <p class="section-eyebrow" style="color:var(--accent)">Get In Touch</p>
+    <h2>Let's Put Your Print to Work</h2>
+    <p>Tell us what you're printing and what you want it to do. We'll tell you honestly whether Magic Media is a fit.</p>
+    <div class="contact-card">
+      <div class="k">Email</div>
+      <div class="v"><a href="mailto:hello@magicmediaapp.com?subject=Magic%20Media%20for%20Brands">hello@magicmediaapp.com</a></div>
+    </div>
+  </div>
+</div>
+
+<footer>Magic Media for Brands — Break Thruu Ent. See also our <a href="https://claude.ai/artifact/V8hp3r5icarPowzXKGTHPy" style="color:var(--accent-ink)">Privacy Policy</a> and <a href="https://claude.ai/artifact/1gs6gn9xuNdWBgUR7Ym3v6" style="color:var(--accent-ink)">Support</a> pages.</footer>
+
+</body>
+</html>

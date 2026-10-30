@@ -15,10 +15,15 @@ How the brand-partnership offering works, and where each piece lives. Built to s
 
    **To get a trigger's ID**: Supabase Studio → Table Editor → `triggers` → copy the `id` column for the row you want.
 
-4. **Brand pitch page** — https://magicmediaapp.com
+4. **Brand pitch page** — https://magicmediaapp.com/brands
    The actual sales asset — explains the offer, how it works, who it's for, what's included, and routes to your email. The "Who It's For" section is the target list: two tiers of industries (strongest fit / also a strong fit), each with a plain-language reason and the specific institution types underneath, closing on the one filter that actually predicts fit — whether the reader is stopped and motivated at the moment they'd scan. Source lives in `web/magicmediaapp.com/` and deploys as a Cloudflare Worker with static assets (not Pages — Cloudflare now steers new deployments to Workers). Domain `magicmediaapp.com` was bought via Cloudflare Registrar and its zone is in the same Cloudflare account, so the Worker is bound to it directly via a Custom Domain route — no separate DNS setup needed. Also still live at the original Claude Artifact (https://claude.ai/artifact/6zm8T5MUY3XLTBiomLWZnK) if that's ever useful, but the real domain is the one to share.
 
-   **To redeploy after editing `web/magicmediaapp.com/public/index.html`**:
+   The root of the domain is now the cinematic AR site (`public/index.html`);
+   the pitch page moved to `public/brands/index.html` when that shipped.
+   Contact on both pages is `hello@magicmediaapp.com`, routed via Cloudflare
+   Email Routing — mail bounces until that route exists.
+
+   **To redeploy after editing anything under `web/magicmediaapp.com/public/`**:
    ```
    cd web/magicmediaapp.com && npx wrangler deploy
    ```

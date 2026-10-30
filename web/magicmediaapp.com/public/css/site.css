@@ -1,0 +1,647 @@
+/* ==========================================================================
+   MAGIC MEDIA — magicmediaapp.com
+   Dark cinematic AR site. Type: Big Shoulders Display (display) + IBM Plex Mono (HUD).
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500&display=swap');
+
+:root {
+  /* Palette derived from the Magic Media app icon: a holographic panel in
+     cyan -> violet -> magenta, floating over deep navy. */
+  --void: #05030f;
+  --void-2: #0d0a24;
+  --ink: #ecebf7;
+  --ink-dim: #9a94c4;
+  --ink-faint: #564f87;
+
+  --cyan: #39ddfc;
+  --violet: #5b3bff;
+  --magenta: #f23bfb;
+
+  --accent: var(--cyan);
+  --accent-lift: #7ef0ff;
+
+  /* the icon's signature sweep — used for fields, rules and accent type */
+  --holo: linear-gradient(100deg, var(--cyan) 0%, var(--violet) 50%, var(--magenta) 100%);
+  /* a light pass of the same sweep: full-bleed fields that must carry dark text */
+  --holo-light: linear-gradient(100deg, #9ff0ff 0%, #bdacff 50%, #ffb0fa 100%);
+
+  --rule: rgba(168, 180, 255, 0.17);
+  --rule-faint: rgba(168, 180, 255, 0.08);
+
+  --gutter: clamp(16px, 3.2vw, 56px);
+  --hud: 11px;
+
+  /* cinematic easing — long tail, matches the reference sites' drift */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-io: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--void);
+  color: var(--ink);
+}
+
+body {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Native cursor is replaced by our own on fine pointers */
+@media (hover: hover) and (pointer: fine) {
+  body.has-cursor, body.has-cursor * { cursor: none !important; }
+}
+
+img, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+::selection { background: var(--accent); color: var(--void); }
+
+/* --------------------------------------------------------------------------
+   Type primitives
+   -------------------------------------------------------------------------- */
+
+.display {
+  font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.85;
+  letter-spacing: 0.002em;
+  margin: 0;
+}
+
+.hud {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--hud);
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.hud--accent { color: var(--accent); }
+
+/* Line-by-line mask reveal. Each .line wraps an .line-i that slides up. */
+.line { display: block; overflow: hidden; }
+.line-i { display: block; will-change: transform; }
+
+/* --------------------------------------------------------------------------
+   Preloader
+   -------------------------------------------------------------------------- */
+
+#preloader {
+  position: fixed; inset: 0; z-index: 9000;
+  background: var(--void);
+  display: flex; align-items: center; justify-content: center;
+}
+
+#preloader .count {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 900;
+  font-size: clamp(90px, 26vw, 340px);
+  line-height: 0.8;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  position: relative;
+  display: flex; align-items: baseline; gap: 0.06em;
+}
+#preloader .count sup {
+  font-size: 0.22em; font-weight: 600; letter-spacing: 0.1em;
+  transform: translateY(-2.4em); color: var(--ink-dim);
+}
+
+/* rotating crosshair ticks over the numeral — the oxyz3 motif */
+#preloader .ticks {
+  position: absolute; left: 50%; top: 50%;
+  width: 78%; height: 78%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+#preloader .ticks span {
+  position: absolute; left: 50%; top: 50%;
+  width: 2px; height: 58%;
+  background: var(--ink);
+  transform-origin: 50% 0;
+}
+
+#preloader .bar {
+  position: absolute; top: 0; left: 0; height: 3px;
+  width: 0%; background: var(--accent);
+}
+
+#preloader .meta {
+  position: absolute; left: var(--gutter); bottom: calc(var(--gutter) - 4px);
+}
+#preloader .meta-r {
+  position: absolute; right: var(--gutter); bottom: calc(var(--gutter) - 4px);
+  text-align: right;
+}
+
+/* --------------------------------------------------------------------------
+   Custom cursor
+   -------------------------------------------------------------------------- */
+
+#cursor {
+  position: fixed; top: 0; left: 0; z-index: 8000;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+#cursor .dot {
+  position: absolute; left: -3px; top: -3px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #fff;
+  transition: width .35s var(--ease-out), height .35s var(--ease-out),
+              left .35s var(--ease-out), top .35s var(--ease-out);
+}
+#cursor.is-wide .dot { width: 54px; height: 54px; left: -27px; top: -27px; }
+
+/* orbiting repeated label, revealed on hover targets */
+#cursor .ring {
+  position: absolute; left: -58px; top: -58px;
+  width: 116px; height: 116px;
+  opacity: 0; transform: scale(0.7);
+  transition: opacity .4s var(--ease-out), transform .5s var(--ease-out);
+}
+#cursor.is-label .ring { opacity: 1; transform: scale(1); }
+#cursor .ring svg { width: 100%; height: 100%; animation: spin 9s linear infinite; }
+#cursor .ring text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em;
+  fill: #fff; text-transform: uppercase;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Over the bright holographic menu field a difference blend fights the
+   palette. Swap to a flat ink cursor while the menu is open. */
+body.menu-open #cursor { mix-blend-mode: normal; }
+body.menu-open #cursor .dot { background: var(--void); }
+body.menu-open #cursor .ring text { fill: var(--void); }
+
+/* --------------------------------------------------------------------------
+   Chrome: header, nav tracker, menu
+   -------------------------------------------------------------------------- */
+
+#chrome { position: fixed; inset: 0; z-index: 400; pointer-events: none; }
+#chrome > * { pointer-events: auto; }
+
+.brand {
+  position: fixed; top: var(--gutter); left: var(--gutter);
+  display: flex; align-items: center; gap: 10px;
+  z-index: 420;
+}
+.brand .mark {
+  width: 28px; height: 28px; flex: none;
+  background: url("/media/appicon.svg") center / contain no-repeat;
+  border-radius: 7px;
+  box-shadow: 0 0 12px rgba(91, 59, 255, .45);
+}
+.brand .wordmark {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800; font-size: 20px; letter-spacing: 0.06em;
+  text-transform: uppercase; line-height: 1;
+  padding-top: 2px;
+}
+
+.menu-btn {
+  position: fixed; top: var(--gutter); right: var(--gutter);
+  z-index: 620;
+  width: 40px; height: 26px;
+  background: none; border: 0; padding: 0;
+  display: flex; flex-direction: column; justify-content: center; gap: 7px;
+}
+.menu-btn i {
+  display: block; height: 1.5px; width: 100%; background: var(--ink);
+  transition: transform .5s var(--ease-io), background .3s;
+}
+body.menu-open .menu-btn i { background: var(--void); }
+body.menu-open .menu-btn i:nth-child(1) { transform: translateY(4.25px) rotate(45deg); }
+body.menu-open .menu-btn i:nth-child(2) { transform: translateY(-4.25px) rotate(-45deg); }
+
+/* right-hand section tracker (bzor's #nav-tracker) */
+.tracker {
+  position: fixed; right: var(--gutter); top: 50%; transform: translateY(-50%);
+  z-index: 410;
+  display: flex; flex-direction: column; gap: 12px; align-items: flex-end;
+}
+.tracker a { display: flex; align-items: center; gap: 10px; }
+.tracker .lbl {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--ink-faint);
+  opacity: 0; transform: translateX(6px);
+  transition: opacity .4s var(--ease-out), transform .4s var(--ease-out), color .3s;
+}
+.tracker .tick { width: 18px; height: 1px; background: var(--ink-faint); transition: width .4s var(--ease-out), background .3s; }
+.tracker a:hover .lbl, .tracker a.on .lbl { opacity: 1; transform: none; color: var(--ink); }
+.tracker a.on .tick { width: 34px; background: var(--accent); }
+
+.scroll-cue {
+  position: fixed; left: var(--gutter); bottom: var(--gutter); z-index: 410;
+  display: flex; align-items: center; gap: 12px;
+}
+.scroll-cue .rail { width: 1px; height: 46px; background: var(--rule); position: relative; overflow: hidden; }
+.scroll-cue .rail::after {
+  content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 40%;
+  background: var(--accent); animation: railDrop 2.4s var(--ease-io) infinite;
+}
+@keyframes railDrop { 0% { transform: translateY(-100%); } 60%,100% { transform: translateY(250%); } }
+
+.corner-r {
+  position: fixed; right: var(--gutter); bottom: var(--gutter); z-index: 410;
+  text-align: right;
+}
+
+/* Menu overlay — circular clip wipe from the button (oxyz3) */
+#menu {
+  position: fixed; inset: 0; z-index: 600;
+  background: var(--holo-light);
+  color: var(--void);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 var(--gutter);
+  clip-path: circle(0% at var(--mx, 100%) var(--my, 0%));
+  transition: clip-path 1s var(--ease-io);
+  visibility: hidden;
+}
+body.menu-open #menu { clip-path: circle(150% at var(--mx, 100%) var(--my, 0%)); visibility: visible; }
+
+#menu ol { list-style: none; margin: 0; padding: 0; }
+#menu li { overflow: hidden; }
+#menu li a {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800; text-transform: uppercase;
+  font-size: clamp(46px, 11vw, 150px); line-height: 0.92;
+  display: flex; align-items: baseline; gap: 0.3em;
+  transform: translateY(105%);
+  transition: transform .9s var(--ease-out), opacity .5s;
+}
+body.menu-open #menu li a { transform: none; }
+body.menu-open #menu li:nth-child(1) a { transition-delay: .18s; }
+body.menu-open #menu li:nth-child(2) a { transition-delay: .25s; }
+body.menu-open #menu li:nth-child(3) a { transition-delay: .32s; }
+body.menu-open #menu li:nth-child(4) a { transition-delay: .39s; }
+body.menu-open #menu li:nth-child(5) a { transition-delay: .46s; }
+#menu li a .n { font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 400; letter-spacing: .1em; align-self: flex-start; padding-top: .9em; opacity: .55; }
+#menu li a:hover { opacity: .45; }
+#menu .menu-foot {
+  position: absolute; left: var(--gutter); right: var(--gutter); bottom: var(--gutter);
+  display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  border-top: 1px solid rgba(5,3,15,.25); padding-top: 14px;
+}
+#menu .hud { color: rgba(5,3,15,.7); }
+
+/* --------------------------------------------------------------------------
+   Smooth-scroll wrapper
+   -------------------------------------------------------------------------- */
+
+#smooth-wrapper { position: relative; }
+section { position: relative; }
+
+/* --------------------------------------------------------------------------
+   HERO
+   -------------------------------------------------------------------------- */
+
+#hero { height: 100svh; overflow: hidden; }
+
+#hero .plate {
+  position: absolute; inset: 0;
+  overflow: hidden;
+}
+#hero .plate video, #hero .plate img.fallback {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.42) contrast(1.30) brightness(0.36) saturate(0.95) hue-rotate(-16deg);
+  will-change: transform;
+}
+/* vignette + grade so type always sits clear of the footage */
+#hero .plate::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(120% 95% at 50% 42%, rgba(91,59,255,.20) 0%, rgba(91,59,255,0) 62%),
+    radial-gradient(100% 75% at 52% 38%, rgba(5,3,15,0) 0%, rgba(5,3,15,.55) 58%, rgba(5,3,15,.92) 100%),
+    linear-gradient(to bottom, rgba(5,3,15,.7) 0%, rgba(5,3,15,.25) 22%, rgba(5,3,15,.45) 52%, rgba(5,3,15,.97) 100%);
+}
+
+#hero .headline {
+  position: absolute; left: var(--gutter); right: var(--gutter);
+  bottom: clamp(88px, 14vh, 190px);
+  z-index: 3;
+}
+#hero .headline h1 {
+  font-size: clamp(58px, 15.5vw, 260px);
+  font-weight: 900;
+}
+.accent-type { color: var(--cyan); }
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .accent-type {
+    background-image: var(--holo);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+}
+#hero .headline h1 .accent-type { font-weight: 900; }
+
+#hero .sub {
+  margin-top: clamp(18px, 3vh, 34px);
+  display: flex; gap: clamp(20px, 6vw, 90px); flex-wrap: wrap;
+  border-top: 1px solid var(--rule); padding-top: 16px;
+  max-width: 760px;
+}
+#hero .sub p { margin: 0; max-width: 40ch; color: #a7a2c8; font-size: 13px; line-height: 1.75; }
+
+/* --------------------------------------------------------------------------
+   Ticker
+   -------------------------------------------------------------------------- */
+
+.ticker {
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  overflow: hidden; padding: 14px 0; background: var(--void);
+}
+.ticker .track { display: flex; width: max-content; will-change: transform; }
+.ticker .track span {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 700; text-transform: uppercase;
+  font-size: clamp(26px, 4.2vw, 56px); line-height: 1;
+  padding: 0 0.42em; white-space: nowrap;
+  display: flex; align-items: center; gap: 0.42em;
+}
+.ticker .track span::after {
+  content: ""; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--cyan); display: inline-block; flex: none;
+}
+.ticker .track span:nth-child(3n+2)::after { background: var(--violet); }
+.ticker .track span:nth-child(3n+3)::after { background: var(--magenta); }
+
+/* --------------------------------------------------------------------------
+   Explainer
+   -------------------------------------------------------------------------- */
+
+#explainer { padding: clamp(110px, 20vh, 240px) var(--gutter); }
+
+#explainer h2 {
+  font-size: clamp(30px, 6.4vw, 104px);
+  font-weight: 700;
+  max-width: 14ch;
+  margin: 0 0 clamp(40px, 7vh, 88px);
+}
+
+#explainer .player {
+  position: relative;
+  max-width: 1180px;
+  aspect-ratio: 16 / 9;
+  background: #04030c;
+  border: 1px solid var(--rule);
+  box-shadow: 0 0 60px rgba(91, 59, 255, .18);
+  overflow: hidden;
+}
+
+#explainer .player video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#explainer .player .corner {
+  position: absolute; z-index: 2; pointer-events: none;
+  width: 14px; height: 14px; border: 1px solid var(--accent);
+}
+#explainer .player .corner.tl { top: 8px; left: 8px; border-right: 0; border-bottom: 0; }
+#explainer .player .corner.br { bottom: 8px; right: 8px; border-left: 0; border-top: 0; }
+
+/* --------------------------------------------------------------------------
+   Manifesto
+   -------------------------------------------------------------------------- */
+
+#manifesto { padding: clamp(110px, 20vh, 240px) var(--gutter); }
+.rail-head {
+  display: flex; gap: 16px; align-items: baseline;
+  border-top: 1px solid var(--rule); padding-top: 14px; margin-bottom: clamp(44px, 8vh, 96px);
+}
+.rail-head .n { color: var(--accent); }
+
+#manifesto .statement {
+  font-size: clamp(30px, 6.4vw, 104px);
+  font-weight: 700;
+  max-width: 17ch;
+}
+#manifesto .statement .dim { color: var(--ink-faint); }
+
+#manifesto .cols {
+  margin-top: clamp(54px, 9vh, 120px);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: clamp(24px, 4vw, 64px);
+}
+#manifesto .cols div { border-top: 1px solid var(--rule-faint); padding-top: 16px; }
+#manifesto .cols p { margin: 10px 0 0; color: var(--ink-dim); font-size: 13px; line-height: 1.8; }
+
+/* --------------------------------------------------------------------------
+   Ritual — pinned three-beat sequence
+   -------------------------------------------------------------------------- */
+
+#ritual { height: 100svh; overflow: hidden; }
+#ritual .stage { position: absolute; inset: 0; }
+
+#ritual .beat {
+  position: absolute; inset: 0;
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 40vw);
+  align-items: center;
+  gap: clamp(20px, 5vw, 80px);
+  padding: 0 var(--gutter);
+}
+#ritual .beat .copy { position: relative; z-index: 2; }
+#ritual .beat .copy .idx {
+  font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em;
+  color: var(--accent); display: block; margin-bottom: 18px;
+}
+#ritual .beat .copy h2 { font-size: clamp(42px, 8.5vw, 132px); font-weight: 800; }
+#ritual .beat .copy p {
+  margin: 22px 0 0; max-width: 34ch; color: var(--ink-dim);
+  font-size: 13.5px; line-height: 1.85;
+}
+
+#ritual .beat .frame {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  max-height: 68vh;
+  margin-left: auto;
+  border: 1px solid var(--rule);
+  box-shadow: 0 0 44px rgba(91, 59, 255, .16);
+  overflow: hidden;
+  background: var(--void-2);
+}
+#ritual .beat .frame video, #ritual .beat .frame img {
+  position: relative; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(.22) contrast(1.08) brightness(.80) saturate(1.02) hue-rotate(-12deg);
+}
+#ritual .beat .frame .corner {
+  position: absolute; z-index: 2;
+  width: 14px; height: 14px; border: 1px solid var(--accent);
+}
+#ritual .beat .frame .corner.tl { top: 8px; left: 8px; border-right: 0; border-bottom: 0; }
+#ritual .beat .frame .corner.br { bottom: 8px; right: 8px; border-left: 0; border-top: 0; }
+
+/* progress rail for the pinned sequence */
+#ritual .rail {
+  position: absolute; left: var(--gutter); bottom: var(--gutter);
+  right: var(--gutter); height: 1px; background: var(--rule);
+  z-index: 3;
+}
+#ritual .rail i { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: var(--holo); }
+
+/* --------------------------------------------------------------------------
+   Dimension — scroll-scrubbed wireframe turntable
+   -------------------------------------------------------------------------- */
+
+#dimension { height: 100svh; overflow: hidden; }
+#dimension .stage { position: absolute; inset: 0; display: grid; place-items: center; }
+#dimension canvas {
+  width: min(78vmin, 780px); height: min(78vmin, 780px);
+  display: block;
+}
+#dimension .stage::before {
+  content: ""; position: absolute; width: min(78vmin, 780px); aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(91,59,255,.20) 0%, transparent 62%);
+}
+#dimension .caption {
+  position: absolute; left: var(--gutter); top: 50%; transform: translateY(-50%);
+  z-index: 3; width: min(34vw, 420px);
+}
+#dimension .caption h2 {
+  font-size: clamp(30px, 3.6vw, 56px); font-weight: 800;
+  margin-top: 14px;
+}
+#dimension .caption p { color: var(--ink-dim); font-size: 13px; line-height: 1.85; margin: 18px 0 0; }
+
+#dimension .specs {
+  position: absolute; right: calc(var(--gutter) + 165px); top: 50%; transform: translateY(-50%);
+  z-index: 3; text-align: right; display: flex; flex-direction: column; gap: 12px;
+}
+#dimension .specs div { border-top: 1px solid var(--rule-faint); padding-top: 8px; min-width: 150px; }
+#dimension .specs b { display: block; color: var(--ink); font-weight: 400; font-size: 13px; letter-spacing: 0; text-transform: none; }
+
+/* --------------------------------------------------------------------------
+   Index — numbered rows with hover media (oxyz3 Projects)
+   -------------------------------------------------------------------------- */
+
+#index { padding: clamp(110px, 18vh, 220px) var(--gutter) clamp(80px, 14vh, 170px); }
+
+.rows { border-top: 1px solid var(--rule); }
+.row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 76px 1fr auto;
+  gap: clamp(14px, 3vw, 40px);
+  align-items: center;
+  padding: clamp(18px, 3.4vh, 34px) 0;
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+}
+.row .n { color: var(--ink-faint); transition: color .4s; }
+.row h3 {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 700; text-transform: uppercase;
+  font-size: clamp(28px, 5.4vw, 74px); line-height: .92; margin: 0;
+  transition: transform .6s var(--ease-out), color .4s;
+}
+.row .tag { color: var(--ink-faint); transition: color .4s; white-space: nowrap; }
+.row .peek {
+  position: absolute; right: clamp(120px, 20vw, 300px); top: 50%;
+  width: clamp(120px, 15vw, 210px); aspect-ratio: 9/16;
+  transform: translate(0, -50%) scale(.82);
+  opacity: 0; pointer-events: none;
+  border: 1px solid var(--rule);
+  overflow: hidden;
+  transition: opacity .5s var(--ease-out), transform .7s var(--ease-out);
+}
+.row .peek video, .row .peek img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.18) brightness(.88) saturate(1.02) hue-rotate(-12deg); }
+
+@media (hover: hover) and (pointer: fine) {
+  .row:hover h3 { transform: translateX(22px); color: var(--accent-lift); }
+  .row:hover .n, .row:hover .tag { color: var(--ink-dim); }
+  .row:hover .peek { opacity: 1; transform: translate(0, -50%) scale(1); }
+}
+
+/* --------------------------------------------------------------------------
+   Contact
+   -------------------------------------------------------------------------- */
+
+#contact {
+  padding: clamp(100px, 16vh, 200px) var(--gutter) var(--gutter);
+  border-top: 1px solid var(--rule);
+}
+#contact .big {
+  font-size: clamp(56px, 15vw, 260px);
+  font-weight: 900;
+  margin-top: clamp(20px, 5vh, 60px);
+}
+#contact .big a { display: inline-block; transition: color .4s; }
+#contact .big a:hover { color: var(--accent-lift); }
+
+#contact .grid {
+  margin-top: clamp(50px, 8vh, 110px);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: clamp(22px, 4vw, 60px);
+}
+#contact .grid div { border-top: 1px solid var(--rule); padding-top: 14px; }
+#contact .grid a.line-link { display: block; font-size: 13.5px; margin-top: 8px; transition: color .3s; }
+#contact .grid a.line-link:hover { color: var(--accent-lift); }
+
+.cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  margin-top: clamp(34px, 6vh, 64px);
+  border: 1px solid var(--ink); padding: 16px 28px;
+  font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+  transition: background .45s var(--ease-out), color .45s var(--ease-out), border-color .45s;
+}
+.cta:hover { background: var(--holo); border-color: transparent; color: var(--void); }
+
+footer.foot {
+  margin-top: clamp(60px, 10vh, 120px);
+  border-top: 1px solid var(--rule); padding-top: 16px;
+  padding-bottom: 54px;            /* clears the fixed clock block */
+  display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .tracker { display: none; }
+  #ritual .beat { grid-template-columns: 1fr; align-content: center; }
+  #ritual .beat .frame { max-height: 38vh; aspect-ratio: 16/10; margin: 0 0 22px; width: 100%; }
+  #ritual .beat { padding-bottom: 60px; }
+  #dimension .specs { display: none; }
+  #dimension .caption { top: auto; bottom: clamp(30px, 8vh, 80px); transform: none; max-width: none; right: var(--gutter); }
+  #dimension canvas { width: 86vmin; height: 86vmin; }
+  .row { grid-template-columns: 52px 1fr; }
+  .row .tag { display: none; }
+  .row .peek { display: none; }
+}
+
+@media (max-width: 620px) {
+  .scroll-cue .rail { height: 32px; }
+  #hero .headline { bottom: 76px; }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion — hold every scrubbed element at a legible resting state
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+  .line-i { transform: none !important; }
+}
